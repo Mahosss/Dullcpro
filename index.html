@@ -11,8 +11,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Tajawal', sans-serif;
-    background: linear-gradient(135deg, #cce7ff, #99d6ff);
-    color: #003366;
+    background: linear-gradient(135deg, #280D32, #3B1450, #1e0724);
+    color: #f0d8ff;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -20,19 +20,22 @@ body {
     overflow-x: hidden;
 }
 
+/* ====== صندوق الصفحة ====== */
 .container {
     max-width: 800px;
     width: 90%;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
     border-radius: 25px;
     padding: 30px;
     margin-top: 40px;
     text-align: center;
-    box-shadow: 0 0 30px rgba(0,180,255,0.4);
+    box-shadow: 0 0 40px rgba(255, 0, 255, 0.15);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(8px);
 }
 
+/* ====== الصورة ====== */
 .avatar-container {
     position: relative;
     display: inline-block;
@@ -42,16 +45,18 @@ body {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    border: 4px solid #99d6ff;
+    border: 4px solid #d180ff;
     object-fit: cover;
     transition: transform 0.3s, box-shadow 0.3s;
     z-index: 2;
 }
+
 .avatar:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 25px #99d6ff;
+    box-shadow: 0 0 25px #d180ff;
 }
 
+/* ====== الايموجيز الطايرة ====== */
 .emoji {
     position: absolute;
     font-size: 24px;
@@ -64,36 +69,40 @@ body {
     100% { transform: translateY(-180px) scale(1.2); opacity: 0; }
 }
 
+/* ====== الاسم ====== */
 .name {
     font-size: 32px;
     margin-top: 15px;
     font-weight: bold;
+    color: #ffb3ff;
 }
 
+/* ====== الحالة ====== */
 .status {
     font-size: 18px;
     margin-top: 5px;
-    line-height: 1.5;
+    line-height: 1.7;
+    color: #f8dfff;
 }
 
+/* ====== الفيديوهات ====== */
 .videos {
     margin-top: 30px;
     display: flex;
     gap: 15px;
     justify-content: center;
-    align-items: stretch; 
-    flex-wrap: nowrap; 
+    align-items: stretch;
+    flex-wrap: nowrap;
 }
 
 .video-card {
-    width: 150px;  
-    height: 300px;  
+    width: 150px;
+    height: 300px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(0,180,255,0.4);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.25);
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
 
 .video-card iframe {
     width: 100%;
@@ -103,9 +112,10 @@ body {
 
 .video-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px #00aaff;
+    box-shadow: 0 0 25px #d180ff;
 }
 
+/* ====== السوشيال ====== */
 .social {
     margin-top: 25px;
     display: flex;
@@ -122,14 +132,15 @@ body {
 
 .social img:hover {
     transform: scale(1.2);
-    box-shadow: 0 0 15px #00aaff;
+    box-shadow: 0 0 15px #d180ff;
 }
-    
+
+/* ====== خط الفاصل المتحرك ====== */
 .divider-anim {
     width: 80%;
     height: 3px;
     margin: 25px auto;
-    background: linear-gradient(90deg, #ff4f9a, #a855f7, #00d4ff);
+    background: linear-gradient(90deg, #ff4f9a, #cb63ff, #7a3cff);
     background-size: 300% 100%;
     animation: move 7s linear infinite;
     border-radius: 10px;
@@ -139,8 +150,6 @@ body {
     0% { background-position: 0% 0; }
     100% { background-position: 300% 0; }
 }
-
-
 </style>
 </head>
 <body>
@@ -156,40 +165,29 @@ body {
         <div class="emoji" style="left:85%; animation-duration: 4.5s;">💙</div>
     </div>
 
-    <div class="name"> ͠ɖƲιιȻ  </div>
+    <div class="name"> ͠ɖƲιιȻ </div>
+
     <div class="status">
-       la 'uhibuk faqat bisabab shakhsiatika, walakin lamaa 'akun ealayh eindama takun bijanibi, 'uhibuk lays min 'ajl ma sanaeath binafsika, walakin min 'ajl ma tasnaeuh li aydan.<br>
+       la 'uhibuk faqat bisabab shakhsiatika...<br>
        ♥️♥️
     </div>
-<div class="divider-anim"></div>
 
-    
+    <div class="divider-anim"></div>
+
     <div class="videos">
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/mcp5fsJ8dw8" allowfullscreen></iframe>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/mcp5fsJ8dw8" allowfullscreen></iframe></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/HVgy8Ge0GJQ" allowfullscreen></iframe></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/1uMZhJeXLYw" allowfullscreen></iframe></div>
     </div>
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/HVgy8Ge0GJQ" allowfullscreen></iframe>
-    </div>
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/1uMZhJeXLYw" allowfullscreen></iframe>
-    </div>
-</div>
+
     <div class="social">
-        <a href="#" title="Facebook">
-            <img src="https://img.alfrsantv.com/img/f176524531738251.png" alt="Facebook">
-        </a>
-        <a href="#" title="Instagram">
-            <img src="https://img.alfrsantv.com/img/f176524532676071.png" alt="Instagram">
-        </a>
-        <a href="#" title="X">
-            <img src="https://img.alfrsantv.com/img/f176524533570421.png" alt="YouTube">
-        </a>
+        <a href="#"><img src="https://img.alfrsantv.com/img/f176524531738251.png"></a>
+        <a href="#"><img src="https://img.alfrsantv.com/img/f176524532676071.png"></a>
+        <a href="#"><img src="https://img.alfrsantv.com/img/f176524533570421.png"></a>
     </div>
 </div>
 
 <script>
-
 const emojis = document.querySelectorAll('.emoji');
 emojis.forEach(e => {
     e.style.bottom = '0px';

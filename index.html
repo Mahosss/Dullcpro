@@ -128,12 +128,21 @@ body {
     box-shadow: 0 0 15px #00aaff;
 }
     
-.divider {
+.divider-anim {
     width: 80%;
-    height: 2px;
-    margin: 20px auto;
-    background: linear-gradient(to right, transparent, #ff4f9a, transparent);
+    height: 3px;
+    margin: 25px auto;
+    background: linear-gradient(90deg, #ff4f9a, #a855f7, #00d4ff);
+    background-size: 300% 100%;
+    animation: move 3s linear infinite;
+    border-radius: 10px;
 }
+
+@keyframes move {
+    0% { background-position: 0% 0; }
+    100% { background-position: 300% 0; }
+}
+
 
 </style>
 </head>
@@ -156,7 +165,7 @@ body {
        la 'uhibuk faqat bisabab shakhsiatika, walakin lamaa 'akun ealayh eindama takun bijanibi, 'uhibuk lays min 'ajl ma sanaeath binafsika, walakin min 'ajl ma tasnaeuh li aydan.<br>
        ♥️♥️
     </div>
-<div class="divider"></div>
+<div class="divider-anim"></div>
 
     
     <div class="videos">

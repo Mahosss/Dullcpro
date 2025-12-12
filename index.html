@@ -41,31 +41,6 @@ body {
   align-items: center; 
   margin-right: auto;  
 }
-.right-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-left: 20px;
-}
-.info-btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background: rgba(255,215,0,0.1);
-  border: 1px solid rgba(255,215,0,0.3);
-  color: #f5d380;
-  font-size: 14px;
-  padding: 6px 10px;
-  margin-bottom: 8px;
-  border-radius: 12px;
-  cursor: default;
-}
-.info-btn img {
-  width: 20px;
-  height: 20px;
-  margin-left: 6px;
-}
 
 .avatar {
   width:130px;
@@ -102,6 +77,21 @@ h1.name {
   font-size:14px;
   text-align:center;
   margin:2px 0;
+  animation:wave 2s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+.glow {
+  position:absolute;
+  top:-40%; left:50%; transform:translateX(-50%);
+  width:400px; height:400px;
+  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
+  filter:blur(70px);
+  z-index:0;
 }
 
 .quotes{
@@ -112,18 +102,35 @@ h1.name {
   padding:15px;
   border-radius:20px;
   border:1px solid rgba(255,215,0,0.12);
-  box-shadow:0 0 12px rgba(255,215,0.07);
-}
-.quotes span{
-  display:block;
-  margin-bottom:10px;
 }
 
-.heart {
-  font-size:40px;
-  margin-top:15px;
+.info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top:20px;
+  gap:12px;
+}
+.info-row {
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
+.info-row button {
+  background:#f5d380;
+  color:#000;
+  border:none;
+  padding:5px 12px;
+  border-radius:8px;
+  cursor:default;
+  font-weight:700;
+}
+.info-row span {
+  color:#f5d380;
+  font-size:15px;
 }
 
+/* الفيديوهات */
 .videos {
   width:100%;
   margin-top:20px;
@@ -177,12 +184,13 @@ h1.name {
 .video-box:hover{
   transform:scale(1.07);
   transition:.25s ease;
-  box-shadow:0 0 18px rgba(255,215,0,0.4);
+  box-shadow:0 0 18px rgba(255,215,0.4);
 }
 </style>
 </head>
 <body>
 <div class="card">
+  <div class="glow"></div>
 
   <div class="top-section">
     <div class="left-box">
@@ -193,13 +201,28 @@ h1.name {
       <div class="wave-text">الحربوقة 🐍</div>
       <div class="wave-text">أم لسان طويل</div>
     </div>
-    
-    <div class="right-info">
-      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/world.png" alt="البلد"/><span>مصر</span></div>
-      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/paint-palette.png" alt="اللون المفضل"/><span>أصفر</span></div>
-      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/musical-notes.png" alt="الموسيقى"/><span>روك</span></div>
-      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/smiling.png" alt="المزاج"/><span>مرتاح</span></div>
-      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/chat.png" alt="الشات"/><span>Chat</span></div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-row">
+      <button>البلد</button>
+      <span>مصر</span>
+    </div>
+    <div class="info-row">
+      <button>اللون المفضل</button>
+      <span>أصفر</span>
+    </div>
+    <div class="info-row">
+      <button>الموسيقى</button>
+      <span>روك</span>
+    </div>
+    <div class="info-row">
+      <button>المزاج</button>
+      <span>مرتاح</span>
+    </div>
+    <div class="info-row">
+      <button>الشات</button>
+      <span>شات ميلودى - <a href="https://mahosss.github.io/Dullcpro/" style="color:#f5d380; text-decoration:underline;">الرابط</a></span>
     </div>
   </div>
 
@@ -207,8 +230,6 @@ h1.name {
     <span>أحبك فقط بسبب شخصيتك، وليس لما تمتلكه…</span>
     <span>أحبك لما تصنعه بي، ولما تضيفه لروحي وجودك.</span>
   </div>
-
-  <div class="heart">❤</div>
 
   <div class="videos">
     <div class="videos-title">فيديوهاتي</div>

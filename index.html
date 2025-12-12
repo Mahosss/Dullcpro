@@ -91,42 +91,32 @@ h1.name {
   100% { transform: translateY(-6px); }
 }
 
-/* الجزء الأيمن: الأسئلة + صندوق الإجابة */
+/* الجزء الأيمن: الأسئلة والإجابات أفقي */
 .info-box {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap:10px;
-  width:200px;
+  gap:12px;
+  width:220px;
 }
 
-.info-item button {
-  background: rgba(255,215,0,0.1);
-  border: 1px solid #f5d380;
-  border-radius:12px;
-  padding:8px 12px;
-  cursor: pointer;
-  color:#f5d380;
-  font-weight:600;
+.info-item {
   display: flex;
-  align-items: center;
-  gap:6px;
-  transition:0.3s;
-}
-.info-item button:hover {
-  background: rgba(255,215,0,0.2);
-}
-
-.answer-box {
-  margin-top:15px;
-  background: rgba(255,215,0,0.1);
+  justify-content: flex-end;
+  gap:8px;
+  background: rgba(255,215,0,0.05);
   border:1px solid #f5d380;
   border-radius:12px;
-  padding:12px;
-  min-height:60px;
+  padding:6px 12px;
+}
+
+.info-item span.question {
+  font-weight:600;
+  color:#f5d380;
+}
+
+.info-item span.answer {
   color:#fff;
-  text-align:right;
-  transition:0.3s;
 }
 
 /* الاقتباسات */
@@ -138,8 +128,8 @@ h1.name {
   background:rgba(255,215,0,0.05);
   padding:15px;
   border-radius:20px;
-  border:1px solid rgba(255,215,0,0.12);
-  box-shadow:0 0 12px rgba(255,215,0,0.07);
+  border:1px solid rgba(255,215,0.12);
+  box-shadow:0 0 12px rgba(255,215,0.07);
   animation:fadeInUp 1s ease forwards 0.5s;
 }
 .quotes span{
@@ -253,23 +243,23 @@ h1.name {
       <div class="wave-text">أم لسان طويل</div>
     </div>
 
-    <!-- الجزء الأيمن: الأسئلة العمودية + صندوق الإجابة -->
+    <!-- الجزء الأيمن: الأسئلة والإجابات -->
     <div class="info-box">
       <div class="info-item">
-        <button onclick="showAnswer('مصر')">🌍 البلد</button>
+        <span class="question">🌍 البلد:</span>
+        <span class="answer">مصر</span>
       </div>
       <div class="info-item">
-        <button onclick="showAnswer('ذهبي')">🎨 اللون المفضل</button>
+        <span class="question">🎨 اللون المفضل:</span>
+        <span class="answer">ذهبي</span>
       </div>
       <div class="info-item">
-        <button onclick="showAnswer('كلاسيكي')">🎵 الموسيقى</button>
+        <span class="question">🎵 الموسيقى:</span>
+        <span class="answer">كلاسيكي</span>
       </div>
       <div class="info-item">
-        <button onclick="showAnswer('هادئ')">😊 المزاج</button>
-      </div>
-
-      <div class="answer-box" id="answerBox">
-        اضغط على أي سؤال لعرض الإجابة
+        <span class="question">😊 المزاج:</span>
+        <span class="answer">هادئ</span>
       </div>
     </div>
   </div>
@@ -297,12 +287,5 @@ h1.name {
   </div>
 
 </div>
-
-<script>
-function showAnswer(text){
-  document.getElementById('answerBox').textContent = text;
-}
-</script>
-
 </body>
 </html>

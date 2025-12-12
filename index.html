@@ -124,11 +124,19 @@ h1.name {
 .info-item {
   display:flex;
   justify-content:flex-end;
+  align-items:center;
   gap:8px;
-  padding:5px 10px;
-  border:1px solid #f5d380;
+  padding:8px 15px;
   border-radius:12px;
-  background: rgba(255,215,0,0.05);
+  background: rgba(255,215,0,0.1);
+  border:1px solid #f5d380;
+  min-width:180px;
+  transition:all 0.3s ease;
+}
+.info-item:hover {
+  background:#f5d380;
+  color:#000;
+  cursor:default;
 }
 .info-item span.question {
   font-weight:600;
@@ -138,6 +146,7 @@ h1.name {
   color:#fff;
 }
 
+/* قسم الفيديوهات */
 .videos {
   width:100%;
   margin-top:20px;
@@ -191,7 +200,7 @@ h1.name {
 .video-box:hover{
   transform:scale(1.07);
   transition:.25s ease;
-  box-shadow:0 0 18px rgba(255,215,0,0.4);
+  box-shadow:0 0 18px rgba(255,215,0.4);
 }
 </style>
 </head>

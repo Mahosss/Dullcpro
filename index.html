@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dullc Edition</title>
+<title>Dullcpro – Golden Edition</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
@@ -19,7 +19,7 @@
   }
   .card {
     width:100%;
-    max-width:600px;
+    max-width:420px;
     background:#111;
     border:1px solid rgba(255,215,0,0.25);
     border-radius:30px;
@@ -125,7 +125,19 @@
     white-space:nowrap;
     padding-bottom:10px;
     scrollbar-width:thin;
-  }
+    scrollbar-color:#f5d380 #222;
+}
+.videos-scroll::-webkit-scrollbar{
+    height:8px;
+}
+.videos-scroll::-webkit-scrollbar-track{
+    background:#222;
+    border-radius:10px;
+}
+.videos-scroll::-webkit-scrollbar-thumb{
+    background:#f5d380;
+    border-radius:10px;
+}
   .video-box{
     display:inline-block;
     width:150px;
@@ -197,9 +209,5 @@
       </div>
     </div>
   </div>
-
-</div>
-  </div>
-
 </body>
 </html>

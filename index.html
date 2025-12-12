@@ -28,7 +28,6 @@ body {
   box-shadow:0 0 25px rgba(255,215,0,0.15);
   position:relative;
   overflow:hidden;
-  animation:fadeIn 1s ease;
 }
 
 .top-section {
@@ -49,13 +48,20 @@ body {
   align-items: flex-start;
   margin-left: 20px;
 }
-.info-item {
+.info-btn {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  justify-content: flex-start;
+  background: rgba(255,215,0,0.1);
+  border: 1px solid rgba(255,215,0,0.3);
+  color: #f5d380;
   font-size: 14px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  cursor: default;
 }
-.info-item img {
+.info-btn img {
   width: 20px;
   height: 20px;
   margin-left: 6px;
@@ -96,25 +102,6 @@ h1.name {
   font-size:14px;
   text-align:center;
   margin:2px 0;
-  animation:wave 2s ease-in-out infinite alternate;
-}
-.wave-text:nth-child(3) {
-  animation-delay:0.3s;
-}
-
-@keyframes wave {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
-}
-
-.glow {
-  position:absolute;
-  top:-40%; left:50%; transform:translateX(-50%);
-  width:400px; height:400px;
-  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
-  filter:blur(70px);
-  z-index:0;
-  animation:glowAnim 3s ease-in-out infinite alternate;
 }
 
 .quotes{
@@ -125,7 +112,7 @@ h1.name {
   padding:15px;
   border-radius:20px;
   border:1px solid rgba(255,215,0,0.12);
-  box-shadow:0 0 12px rgba(255,215,0,0.07);
+  box-shadow:0 0 12px rgba(255,215,0.07);
 }
 .quotes span{
   display:block;
@@ -192,12 +179,10 @@ h1.name {
   transition:.25s ease;
   box-shadow:0 0 18px rgba(255,215,0,0.4);
 }
-
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="glow"></div>
 
   <div class="top-section">
     <div class="left-box">
@@ -210,11 +195,11 @@ h1.name {
     </div>
     
     <div class="right-info">
-      <div class="info-item"><span>مصر</span><img src="https://img.icons8.com/ios-filled/50/ffffff/world.png" alt="البلد"/></div>
-      <div class="info-item"><span>أصفر</span><img src="https://img.icons8.com/ios-filled/50/ffffff/paint-palette.png" alt="اللون المفضل"/></div>
-      <div class="info-item"><span>روك</span><img src="https://img.icons8.com/ios-filled/50/ffffff/musical-notes.png" alt="الموسيقى"/></div>
-      <div class="info-item"><span>مرتاح</span><img src="https://img.icons8.com/ios-filled/50/ffffff/smiling.png" alt="المزاج"/></div>
-      <div class="info-item"><span>Chat</span><img src="https://img.icons8.com/ios-filled/50/ffffff/chat.png" alt="الشات"/></div>
+      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/world.png" alt="البلد"/><span>مصر</span></div>
+      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/paint-palette.png" alt="اللون المفضل"/><span>أصفر</span></div>
+      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/musical-notes.png" alt="الموسيقى"/><span>روك</span></div>
+      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/smiling.png" alt="المزاج"/><span>مرتاح</span></div>
+      <div class="info-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/chat.png" alt="الشات"/><span>Chat</span></div>
     </div>
   </div>
 

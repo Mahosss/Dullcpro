@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dullc</title>
+<title>Dullc Edition</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
@@ -34,18 +34,8 @@ body {
 .top-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.glow {
-  position:absolute;
-  top:-40%; left:50%; transform:translateX(-50%);
-  width:400px; height:400px;
-  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
-  filter:blur(70px);
-  z-index:0;
-  animation:glowAnim 3s ease-in-out infinite alternate;
+  align-items: flex-start;
+  position: relative;
 }
 
 .avatar {
@@ -56,8 +46,6 @@ body {
   padding:5px;
   background:#000;
   box-shadow:0 0 18px rgba(255,215,0,0.4);
-  position:relative;
-  z-index:2;
   overflow:hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -74,64 +62,62 @@ body {
 }
 
 h1 {
-  margin:10px 0 5px;
-  font-size:30px;
+  margin:15px 0 5px;
+  font-size:28px;
   letter-spacing:2px;
-  background: linear-gradient(90deg, #f5d380, #fff6d0, #f5d380);
-  -webkit-background-clip:text;
-  color:transparent;
-  animation:shine 4s linear infinite;
-  text-shadow:0 0 8px rgba(255,215,0,0.3);
-}
-
-@keyframes shine {
-  0% {background-position:-150px;} 
-  100% {background-position:150px;} 
-}
-
-/* نصوص تحت الاسم */
-.side-text-below {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top:5px;
-}
-.side-text-below span {
-  font-size:14px;
   color:#f5d380;
-  display:flex;
-  align-items:center;
+  text-align:center;
+}
+
+.wave-text {
+  color:#f5d380;
+  font-size:14px;
+  text-align:center;
   margin:2px 0;
   animation:wave 2s ease-in-out infinite alternate;
 }
-.side-text-below span svg {
-  margin-left:6px;
-  width:16px;
-  height:16px;
-  fill:#f5d380;
+.wave-text:nth-child(2) {
+  animation-delay:0.3s;
 }
 
 @keyframes wave {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-5px); }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+.glow {
+  position:absolute;
+  top:-40%; left:50%; transform:translateX(-50%);
+  width:400px; height:400px;
+  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
+  filter:blur(70px);
+  z-index:0;
+  animation:glowAnim 3s ease-in-out infinite alternate;
 }
 
 .quotes{
   margin-top:18px;
   font-size:17px;
   line-height:1.9;
+  opacity:0;
   background:rgba(255,215,0,0.05);
   padding:15px;
   border-radius:20px;
   border:1px solid rgba(255,215,0,0.12);
   box-shadow:0 0 12px rgba(255,215,0,0.07);
-  /* تم إزالة أي تأثير توهج */
-  opacity:1;
+  animation:fadeInUp 1s ease forwards 0.5s;
 }
 .quotes span{
   display:block;
   margin-bottom:10px;
-  opacity:1;
+  opacity:0;
+  animation:quoteAppear 0.8s ease forwards;
+}
+.quotes span:nth-child(1){animation-delay:0.7s}
+.quotes span:nth-child(2){animation-delay:1s}
+@keyframes quoteAppear{
+  0%{opacity:0; transform:translateY(15px);}
+  100%{opacity:1; transform:translateY(0);}
 }
 
 .heart {
@@ -228,15 +214,9 @@ h1 {
 
   <div class="top-section">
     <div class="avatar"><img src="https://img.alfrsantv.com/img/f176550047297151.png" alt="Avatar"/></div>
-    
     <h1>ɖƲιιȻ</h1>
-    
-    <div class="side-text-below">
-      <span>الحربوقة
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 2C18 2 2 18 2 32s16 30 30 30 30-16 30-30S46 2 32 2zm0 4c14 0 26 12 26 26S46 58 32 58 6 46 6 32 18 6 32 6z"/></svg>
-      </span>
-      <span>أم لسان طويل</span>
-    </div>
+    <div class="wave-text">الحربوقة 🐍</div>
+    <div class="wave-text">أم لسان طويل</div>
   </div>
 
   <div class="quotes">

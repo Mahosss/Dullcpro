@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dullc – Golden</title>
+<title>Dullcpro – Golden Edition</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
   * {margin:0; padding:0; box-sizing:border-box; font-family:"Tajawal", sans-serif;}
   body {
     background:#0b0b0b;
@@ -87,22 +89,30 @@
     100% {transform:scale(1); opacity:0.8;}
   }
 
-  /* قسم الفيديوهات – شكل حالات واتس */
+  /* عنوان فيديوهات داخل زر ثابت */
+  .videos-title{
+    background:#f5d380;
+    color:#000;
+    padding:10px 18px;
+    font-size:18px;
+    font-weight:700;
+    border-radius:25px;
+    display:inline-block;
+    margin-bottom:15px;
+  }
+
+  /* قسم الفيديوهات */
   .videos {
     width:100%;
-    margin-top:35px;
-    padding-top:20px;
+    margin-top:20px;
+    padding-top:10px;
     border-top:1px solid rgba(255,215,0,0.25);
+  }
+  .videos-scroll{
     overflow-x:auto;
     white-space:nowrap;
+    padding-bottom:10px;
     scrollbar-width:thin;
-  }
-  .videos h2{
-    font-size:22px;
-    margin-bottom:15px;
-    color:#f5d380;
-    letter-spacing:1px;
-    text-align:right;
   }
   .video-box{
     display:inline-block;

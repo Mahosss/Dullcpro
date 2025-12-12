@@ -211,6 +211,41 @@ h1.name {
 }
 
 
+
+
+
+
+
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+  gap: 10px;
+}
+
+.info-line {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #f5d380;
+}
+
+.info-icon {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.info-title {
+  font-weight: 600;
+  margin-right: 3px;
+}
+
+.info-value {
+  font-weight: 400;
+  color: #fff6d0;
+}
 </style>
 </head>
 <body>
@@ -227,6 +262,29 @@ h1.name {
       <div class="wave-text">أم لسان طويل</div>
     </div>
   </div>
+  
+<div class="info-section">
+  <div class="info-line">
+    <span class="info-icon">🌍</span>
+    <span class="info-title">البلد:</span>
+    <span class="info-value">مصر</span>
+  </div>
+  <div class="info-line">
+    <span class="info-icon">🎨</span>
+    <span class="info-title">اللون المفضل:</span>
+    <span class="info-value">ذهبي</span>
+  </div>
+  <div class="info-line">
+    <span class="info-icon">🎵</span>
+    <span class="info-title">الموسيقى:</span>
+    <span class="info-value">هادئة</span>
+  </div>
+  <div class="info-line">
+    <span class="info-icon">✨</span>
+    <span class="info-title">المزاج:</span>
+    <span class="info-value">مرح</span>
+  </div>
+</div>
 
   <div class="quotes">
     <span>أحبك فقط بسبب شخصيتك، وليس لما تمتلكه…</span>

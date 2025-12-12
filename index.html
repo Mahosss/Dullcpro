@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dullc</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
@@ -32,17 +31,17 @@ body {
   animation:fadeIn 1s ease;
 }
 
-/* ============ الصورة والاسم يمين-يسار ============ */
+/* ======== الصورة والاسم ======== */
 .top-section {
-  display: flex;
-  width: 100%;
-  margin-bottom: 20px;
+  display:flex;
+  width:100%;
+  margin-bottom:20px;
 }
 .left-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  margin-right: auto;  
+  display:flex;
+  flex-direction:column;
+  align-items:center; 
+  margin-right:auto;  
 }
 .avatar {
   width:130px;
@@ -87,48 +86,51 @@ h1.name {
   100% { transform: translateY(-6px); }
 }
 
-/* ============ كروت المعلومات info-row ============ */
+/* ======== الكروت الجانبية للمعلومات ======== */
 .info-box {
   display:flex;
   flex-direction:column;
   gap:12px;
-  margin-right:20px;
+  margin-left:20px; /* على يمين الصورة */
   margin-top:10px;
 }
 .info-row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background: #1a1a1a;
-  border: 1px solid rgba(255,215,0,0.25);
-  padding: 10px 14px;
-  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,215,0,0.05); /* اللون الأصلي الفاتح */
+  border:1px solid rgba(255,215,0,0.2);
+  padding:10px 14px;
+  border-radius:12px;
   min-width:180px;
-  box-shadow: 0 0 10px rgba(255,215,0,0.2);
-  transition: all 0.3s ease;
-  direction: rtl;
+  transition:all 0.3s ease;
 }
 .info-row:hover {
-  box-shadow: 0 0 18px rgba(255,215,0,0.5);
-  transform: translateY(-2px);
-}
-.info-row i {
-  color:#f5d380;
-  margin-left:8px;
-  font-size:16px;
+  background:rgba(255,215,0,0.12);
+  box-shadow:0 0 10px rgba(255,215,0,0.4);
 }
 .info-row span.question {
   font-weight:700;
   font-size:15px;
   color:#f5d380;
-  margin-right:8px;
+  display:flex;
+  align-items:center;
+  gap:5px;
 }
 .info-row span.answer {
   font-size:15px;
   color:#fff;
 }
+.info-row a {
+  color:#f5d380;
+  text-decoration:none;
+  font-weight:700;
+}
+.info-row i {
+  color:#f5d380;
+}
 
-/* ============ باقي التنسيق ============ */
+/* ======== باقي التنسيقات ======== */
 .glow {
   position:absolute;
   top:-40%; left:50%; transform:translateX(-50%);
@@ -186,7 +188,7 @@ h1.name {
   100%{transform:translateX(-50%) scale(1.05);}
 }
 
-/* ======= الفيديوهات ======= */
+/* ======== الفيديوهات ======== */
 .videos {
   width:100%;
   margin-top:20px;
@@ -264,24 +266,11 @@ h1.name {
       <div class="wave-text">أم لسان طويل</div>
     </div>
 
-    <!-- مربع المعلومات يمين الصورة -->
     <div class="info-box">
-      <div class="info-row">
-        <span class="question"><i class="fas fa-map-marker-alt"></i> البلد:</span>
-        <span class="answer">مصر</span>
-      </div>
-      <div class="info-row">
-        <span class="question"><i class="fas fa-palette"></i> اللون:</span>
-        <span class="answer">بينك</span>
-      </div>
-      <div class="info-row">
-        <span class="question"><i class="fas fa-smile"></i> المزاج:</span>
-        <span class="answer">رايق</span>
-      </div>
-      <div class="info-row">
-        <span class="question"><i class="fas fa-comments"></i> الشات:</span>
-        <a class="answer" href="https://xat.com/melodylovers" target="_blank">شات ميلودى</a>
-      </div>
+      <div class="info-row"><span class="question"><i>🌍</i> البلد:</span> <span class="answer">مصر</span></div>
+      <div class="info-row"><span class="question"><i>🎨</i> اللون:</span> <span class="answer">بينك</span></div>
+      <div class="info-row"><span class="question"><i>😎</i> المزاج:</span> <span class="answer">رايق</span></div>
+      <div class="info-row"><span class="question"><i>💬</i> الشات:</span> <a href="https://xat.com/melodylovers" target="_blank">شات ميلودى</a></div>
     </div>
   </div>
 
@@ -306,7 +295,6 @@ h1.name {
       </div>
     </div>
   </div>
-
 </div>
 </body>
 </html>

@@ -34,12 +34,12 @@ body {
   display: flex;
   width: 100%;
   margin-bottom: 20px;
+  gap: 20px;
 }
 .left-box {
   display: flex;
   flex-direction: column;
   align-items: center; 
-  margin-right: auto;  
 }
 
 .avatar {
@@ -85,37 +85,18 @@ h1.name {
   100% { transform: translateY(-6px); }
 }
 
-.glow {
-  position:absolute;
-  top:-40%; left:50%; transform:translateX(-50%);
-  width:400px; height:400px;
-  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
-  filter:blur(70px);
-  z-index:0;
-}
-
-.quotes{
-  margin-top:18px;
-  font-size:17px;
-  line-height:1.9;
-  background:rgba(255,215,0,0.05);
-  padding:15px;
-  border-radius:20px;
-  border:1px solid rgba(255,215,0,0.12);
-}
-
 .info-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin-top:20px;
+  align-items: flex-start;
+  justify-content: center;
   gap:12px;
 }
+
 .info-row {
   display: flex;
   align-items: center;
   gap:10px;
-  justify-content: flex-end;
 }
 .info-row button {
   background:#f5d380;
@@ -132,12 +113,21 @@ h1.name {
   font-size:15px;
 }
 
-/* الفيديوهات */
+.quotes{
+  margin-top:18px;
+  font-size:17px;
+  line-height:1.9;
+  background:rgba(255,215,0,0.05);
+  padding:15px;
+  border-radius:20px;
+  border:1px solid rgba(255,215,0.12);
+}
+
 .videos {
   width:100%;
   margin-top:20px;
   padding-top:10px;
-  border-top:1px solid rgba(255,215,0,0.25);
+  border-top:1px solid rgba(255,215,0.25);
 }
 .videos-title{
   background:#f5d380;
@@ -186,7 +176,7 @@ h1.name {
 .video-box:hover{
   transform:scale(1.07);
   transition:.25s ease;
-  box-shadow:0 0 18px rgba(255,215,0,0.4);
+  box-shadow:0 0 18px rgba(255,215,0.4);
 }
 </style>
 </head>
@@ -203,28 +193,28 @@ h1.name {
       <div class="wave-text">الحربوقة 🐍</div>
       <div class="wave-text">أم لسان طويل</div>
     </div>
-  </div>
 
-  <div class="info-section">
-    <div class="info-row">
-      <span>مصر</span>
-      <button>البلد</button>
-    </div>
-    <div class="info-row">
-      <span>أصفر</span>
-      <button>اللون المفضل</button>
-    </div>
-    <div class="info-row">
-      <span>روك</span>
-      <button>الموسيقى</button>
-    </div>
-    <div class="info-row">
-      <span>مرتاح</span>
-      <button>المزاج</button>
-    </div>
-    <div class="info-row">
-      <span>شات ميلودى - <a href="https://mahosss.github.io/Dullcpro/" style="color:#f5d380; text-decoration:underline;">الرابط</a></span>
-      <button>الشات</button>
+    <div class="info-section">
+      <div class="info-row">
+        <button>البلد</button>
+        <span>مصر</span>
+      </div>
+      <div class="info-row">
+        <button>اللون المفضل</button>
+        <span>أصفر</span>
+      </div>
+      <div class="info-row">
+        <button>الموسيقى</button>
+        <span>روك</span>
+      </div>
+      <div class="info-row">
+        <button>المزاج</button>
+        <span>مرتاح</span>
+      </div>
+      <div class="info-row">
+        <button>الشات</button>
+        <span>شات ميلودى - <a href="https://mahosss.github.io/Dullcpro/" style="color:#f5d380; text-decoration:underline;">الرابط</a></span>
+      </div>
     </div>
   </div>
 

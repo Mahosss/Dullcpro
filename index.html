@@ -78,6 +78,15 @@ h1.name {
   font-size:14px;
   text-align:center;
   margin:2px 0;
+  animation:wave 2s ease-in-out infinite alternate;
+}
+.wave-text:nth-child(3) {
+  animation-delay:0.3s;
+}
+
+@keyframes wave {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
 }
 
 .glow {
@@ -94,49 +103,51 @@ h1.name {
   margin-top:18px;
   font-size:17px;
   line-height:1.9;
+  opacity:0;
   background:rgba(255,215,0,0.05);
   padding:15px;
   border-radius:20px;
   border:1px solid rgba(255,215,0,0.12);
-  box-shadow:0 0 12px rgba(255,215,0.07);
+  box-shadow:0 0 12px rgba(255,215,0,0.07);
+  animation:fadeInUp 1s ease forwards 0.5s;
 }
 .quotes span{
   display:block;
   margin-bottom:10px;
-  opacity:1;
+  opacity:0;
+  animation:quoteAppear 0.8s ease forwards;
+}
+.quotes span:nth-child(1){animation-delay:0.7s}
+.quotes span:nth-child(2){animation-delay:1s}
+@keyframes quoteAppear{
+  0%{opacity:0; transform:translateY(15px);}
+  100%{opacity:1; transform:translateY(0);}
 }
 
 .heart {
   font-size:40px;
   margin-top:15px;
-  opacity:1;
+  animation:pulse 1.4s infinite ease-in-out, fadeInUp 1s ease forwards 1.2s;
+  opacity:0;
+}
+@keyframes pulse {
+  0% {transform:scale(1); opacity:0.8;}
+  50% {transform:scale(1.3); opacity:1;}
+  100% {transform:scale(1); opacity:0.8;}
+}
+@keyframes fadeInUp{
+  0%{opacity:0; transform:translateY(25px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+@keyframes fadeIn{
+  0%{opacity:0; transform:scale(0.95);}
+  100%{opacity:1; transform:scale(1);}
+}
+@keyframes glowAnim{
+  0%{transform:translateX(-50%) scale(1);}
+  100%{transform:translateX(-50%) scale(1.05);}
 }
 
-/* معلومات جهة اليمين بدون أي تأثيرات */
-.info-box {
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:10px;
-  margin-left:20px;
-  direction:rtl;
-}
-.info-item {
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  gap:8px;
-  min-width:180px;
-}
-.info-item span.question {
-  font-weight:600;
-  color:#f5d380;
-}
-.info-item span.answer {
-  color:#fff;
-}
-
-/* قسم الفيديوهات */
 .videos {
   width:100%;
   margin-top:20px;
@@ -181,7 +192,13 @@ h1.name {
   margin:0 10px;
   border:1px solid rgba(255,215,0,0.25);
   box-shadow:0 0 15px rgba(255,215,0.2);
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp .8s ease forwards;
 }
+.video-box:nth-child(1){animation-delay:.1s}
+.video-box:nth-child(2){animation-delay:.25s}
+.video-box:nth-child(3){animation-delay:.4s}
 .video-box iframe{
   width:150px;
   height:260px;
@@ -190,8 +207,10 @@ h1.name {
 .video-box:hover{
   transform:scale(1.07);
   transition:.25s ease;
-  box-shadow:0 0 18px rgba(255,215,0.4);
+  box-shadow:0 0 18px rgba(255,215,0,0.4);
 }
+
+
 </style>
 </head>
 <body>
@@ -206,26 +225,6 @@ h1.name {
       <h1 class="name">ɖƲιιȻ</h1>
       <div class="wave-text">الحربوقة 🐍</div>
       <div class="wave-text">أم لسان طويل</div>
-    </div>
-
-    <!-- معلومات جهة اليمين بدون أي تأثير -->
-    <div class="info-box">
-      <div class="info-item">
-        <span class="question">البلد:</span>
-        <span class="answer">مصر</span>
-      </div>
-      <div class="info-item">
-        <span class="question">اللون المفضل:</span>
-        <span class="answer">ذهبي</span>
-      </div>
-      <div class="info-item">
-        <span class="question">الموسيقى:</span>
-        <span class="answer">كلاسيكي</span>
-      </div>
-      <div class="info-item">
-        <span class="question">المزاج:</span>
-        <span class="answer">هادئ</span>
-      </div>
     </div>
   </div>
 

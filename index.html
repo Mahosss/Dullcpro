@@ -31,7 +31,7 @@ body {
   animation:fadeIn 1s ease;
 }
 
-/* ============ الصورة والاسم يمين-يسار ============ */
+/* الصورة والاسم */
 .top-section {
   display: flex;
   width: 100%;
@@ -86,7 +86,7 @@ h1.name {
   100% { transform: translateY(-6px); }
 }
 
-/* ============ بطاقات المعلومات يمين الصورة ============ */
+/* بطاقات المعلومات */
 .info-box {
   display:flex;
   flex-direction:column;
@@ -96,11 +96,11 @@ h1.name {
 }
 .info-row {
   display:flex;
-  flex-direction: row; /* السؤال أول ثم الإجابة */
+  flex-direction: row; 
   justify-content: flex-start;
   align-items: center;
   gap:10px;
-  background: rgba(26,26,26,0.8); /* اللون القديم */
+  background: rgba(26,26,26,0.8);
   border: 1px solid rgba(255,215,0,0.25);
   padding:10px 14px;
   border-radius:12px;
@@ -114,7 +114,8 @@ h1.name {
   gap:6px;
 }
 .info-row span.question::before {
-  content: "❖"; /* أيقونة قبل السؤال */
+  content: "•"; /* أيقونة آمنة */ 
+  color:#f5d380;
 }
 .info-row span.answer {
   font-size:15px;
@@ -126,7 +127,7 @@ h1.name {
   font-weight:700;
 }
 
-/* ============ تأثيرات عامة ============ */
+/* تأثيرات عامة */
 .glow {
   position:absolute;
   top:-40%; left:50%; transform:translateX(-50%);
@@ -184,7 +185,7 @@ h1.name {
   100%{transform:translateX(-50%) scale(1.05);}
 }
 
-/* ======= الفيديوهات ======= */
+/* الفيديوهات */
 .videos {
   width:100%;
   margin-top:20px;
@@ -255,8 +256,6 @@ h1.name {
   <div class="glow"></div>
 
   <div class="top-section">
-
-    <!-- صورة + اسم -->
     <div class="left-box">
       <div class="avatar">
         <img src="https://img.alfrsantv.com/img/f176550047297151.png" alt="Avatar"/>
@@ -266,9 +265,7 @@ h1.name {
       <div class="wave-text">أم لسان طويل</div>
     </div>
 
-    <!-- مربع المعلومات يمين الصورة -->
     <div class="info-box">
-
       <div class="info-row">
         <span class="question">البلد:</span>
         <span class="answer">مصر</span>
@@ -288,9 +285,7 @@ h1.name {
         <span class="question">الشات:</span>
         <a href="https://xat.com/melodylovers" target="_blank">شات ميلودى</a>
       </div>
-
     </div>
-
   </div>
 
   <div class="quotes">

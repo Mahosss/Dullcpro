@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dullc</title>
+<title>Dullc Edition</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
@@ -19,7 +19,7 @@ body {
 }
 .card {
   width:100%;
-  max-width:750px;
+  max-width:700px;
   background:#111;
   border:1px solid rgba(255,215,0,0.25);
   border-radius:30px;
@@ -31,15 +31,16 @@ body {
   animation:fadeIn 1s ease;
 }
 
+/* قسم أعلى البطاقة */
 .top-section {
   display: flex;
-  width: 100%;
-  margin-bottom: 20px;
   justify-content: flex-start;
-  align-items: center;
-  gap: 25px;
+  align-items: flex-start;
+  gap:30px;
+  margin-bottom: 20px;
 }
 
+/* جزء الصورة والاسم والعبارات */
 .left-box {
   display: flex;
   flex-direction: column;
@@ -69,7 +70,7 @@ body {
   box-shadow:0 0 30px rgba(255,215,0,0.6);
 }
 
-.name {
+h1.name {
   margin:10px 0 5px;
   font-size:28px;
   color:#f5d380;
@@ -86,53 +87,39 @@ body {
 .wave-text:nth-child(3) {
   animation-delay:0.3s;
 }
-
 @keyframes wave {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-  100% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
 }
 
-/* صندوق المعلومات الأفقية */
+/* جزء المعلومات بجانب الصورة */
 .info-box {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content:flex-start;
+  flex-direction: column;
+  gap:10px;
+  margin-top:10px;
 }
-
 .info-item {
+  background: rgba(255,215,0,0.1);
+  border: 1px solid #f5d380;
+  border-radius:12px;
+  padding:8px 12px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(255,215,0,0.1);
-  padding: 8px 12px;
-  border-radius: 12px;
-  border:1px solid rgba(255,215,0,0.3);
-  font-size:14px;
-  min-width: 90px;
-  justify-content:center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap:8px;
+  transition: 0.3s;
 }
 .info-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 10px rgba(255,215,0,0.5);
+  background: rgba(255,215,0,0.2);
 }
-.info-item i {
-  font-style: normal;
-  color:#fff;
-}
-
-.glow {
-  position:absolute;
-  top:-40%; left:50%; transform:translateX(-50%);
-  width:400px; height:400px;
-  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
-  filter:blur(70px);
-  z-index:0;
-  animation:glowAnim 3s ease-in-out infinite alternate;
+.info-text {
+  display: none;
+  font-weight: bold;
+  color: #fff;
 }
 
+/* الاقتباسات */
 .quotes{
   margin-top:18px;
   font-size:17px;
@@ -158,6 +145,7 @@ body {
   100%{opacity:1; transform:translateY(0);}
 }
 
+/* القلب */
 .heart {
   font-size:40px;
   margin-top:15px;
@@ -261,10 +249,10 @@ body {
     </div>
 
     <div class="info-box">
-      <div class="info-item"><i>🌍</i> مصر</div>
-      <div class="info-item"><i>🎨</i> ذهبي</div>
-      <div class="info-item"><i>🎵</i> كلاسيكي</div>
-      <div class="info-item"><i>😊</i> هادئ</div>
+      <div class="info-item" onclick="toggleInfo(this)">🌍 البلد <span class="info-text">مصر</span></div>
+      <div class="info-item" onclick="toggleInfo(this)">🎨 اللون المفضل <span class="info-text">ذهبي</span></div>
+      <div class="info-item" onclick="toggleInfo(this)">🎵 الموسيقى <span class="info-text">كلاسيكي</span></div>
+      <div class="info-item" onclick="toggleInfo(this)">😊 المزاج <span class="info-text">هادئ</span></div>
     </div>
   </div>
 
@@ -291,5 +279,13 @@ body {
   </div>
 
 </div>
+
+<script>
+function toggleInfo(el) {
+  const text = el.querySelector('.info-text');
+  text.style.display = text.style.display === 'inline' ? 'none' : 'inline';
+}
+</script>
+
 </body>
 </html>

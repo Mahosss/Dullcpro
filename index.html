@@ -3,332 +3,160 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dullc</title>
+<title>صفحة شخصية</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
-
-* {margin:0; padding:0; box-sizing:border-box; font-family:"Tajawal", sans-serif;}
 body {
-  background:#0b0b0b;
-  color:#f5d380;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  min-height:100vh;
-  padding:25px;
-}
-.card {
-  width:100%;
-  max-width:600px;
-  background:#111;
-  border:1px solid rgba(255,215,0,0.25);
-  border-radius:30px;
-  padding:35px 30px 45px;
-  text-align:center;
-  box-shadow:0 0 25px rgba(255,215,0,0.15);
-  position:relative;
-  overflow:hidden;
-  animation:fadeIn 1s ease;
+  background: #0f172a;
+  color: #fff;
+  font-family: "Cairo", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  direction: rtl;
 }
 
-/* ============ شكل الاسئلة يمين الصورة ============ */
+/* ----------- الصورة + المعلومات ----------- */
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* ----------- الصورة ----------- */
+.profile-pic {
+  width: 220px;
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #ff77c8;
+  box-shadow: 0 0 25px #ff77c880;
+  transition: 0.4s;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.profile-pic:hover img {
+  transform: scale(1.12);
+}
+
+/* ----------- الاسم + الجمل المتحركة ----------- */
+.text-box {
+  margin-top: 10px;
+}
+
+.name {
+  font-size: 26px;
+  color: #ff9ada;
+  font-weight: bold;
+}
+
+.moving-text {
+  font-size: 16px;
+  opacity: 0;
+  animation: fadeIn 3s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------- بطاقات المعلومات ----------- */
 .info-box {
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  margin-right:20px;
-  margin-top:10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .info-row {
-  display:flex;
-  flex-direction:row; /* يجعل السؤال قبل الإجابة */
-  justify-content:flex-start;
-  gap:10px;
-  align-items:center;
-  background:#1a1a1a;
-  border:1px solid rgba(255,215,0,0.25);
-  padding:10px 14px;
-  border-radius:12px;
-  min-width:170px;
+  background: linear-gradient(135deg, #ffffff10, #ffffff05);
+  border: 1px solid #ffffff30;
+  padding: 12px 15px;
+  border-radius: 16px;
+  width: 260px;
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
 }
 
-.question {
-  font-weight:700;
-  font-size:15px;
-  color:#f5d380;
-  min-width:60px;
+.info-row:hover {
+  transform: translateX(-6px);
+  background: linear-gradient(135deg, #ffffff20, #ffffff10);
 }
 
-.answer {
-  font-size:15px;
-  color:#fff;
-  text-align:right;
+/* السؤال */
+.info-row .q {
+  font-weight: bold;
+  color: #ff77c8;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+/* الإجابة */
+.info-row .a {
+  color: #fff;
+  font-size: 14px;
 }
 
 .info-row a {
-  color:#f5d380;
-  text-decoration:none;
-  font-weight:700;
+  color: #ff9ada;
+  text-decoration: none;
+  font-weight: bold;
 }
-
-/* ============ الصورة والاسم يمين-يسار ============ */
-
-.top-section {
-  display: flex;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.left-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  margin-right: auto;  
-}
-
-.avatar {
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  border:4px solid #f5d380;
-  padding:5px;
-  background:#000;
-  box-shadow:0 0 18px rgba(255,215,0,0.4);
-  overflow:hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.avatar img {
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-.avatar:hover img {
-  transform: scale(1.25);
-  box-shadow:0 0 30px rgba(255,215,0,0.6);
-}
-
-h1.name {
-  margin:10px 0 5px;
-  font-size:28px;
-  color:#f5d380;
-  text-align:center;
-}
-
-.wave-text {
-  color:#f5d380;
-  font-size:14px;
-  text-align:center;
-  margin:2px 0;
-  animation:wave 2s ease-in-out infinite alternate;
-}
-.wave-text:nth-child(3) {
-  animation-delay:0.3s;
-}
-
-@keyframes wave {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
-}
-
-/* ============ باقي التنسيق كما هوا ============ */
-
-.glow {
-  position:absolute;
-  top:-40%; left:50%; transform:translateX(-50%);
-  width:400px; height:400px;
-  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
-  filter:blur(70px);
-  z-index:0;
-  animation:glowAnim 3s ease-in-out infinite alternate;
-}
-
-.quotes{
-  margin-top:18px;
-  font-size:17px;
-  line-height:1.9;
-  opacity:0;
-  background:rgba(255,215,0,0.05);
-  padding:15px;
-  border-radius:20px;
-  border:1px solid rgba(255,215,0,0.12);
-  box-shadow:0 0 12px rgba(255,215,0,0.07);
-  animation:fadeInUp 1s ease forwards 0.5s;
-}
-.quotes span{
-  display:block;
-  margin-bottom:10px;
-  opacity:0;
-  animation:quoteAppear 0.8s ease forwards;
-}
-.quotes span:nth-child(1){animation-delay:0.7s}
-.quotes span:nth-child(2){animation-delay:1s}
-
-@keyframes quoteAppear{
-  0%{opacity:0; transform:translateY(15px);}
-  100%{opacity:1; transform:translateY(0);}
-}
-
-.heart {
-  font-size:40px;
-  margin-top:15px;
-  animation:pulse 1.4s infinite ease-in-out, fadeInUp 1s ease forwards 1.2s;
-  opacity:0;
-}
-
-@keyframes pulse {
-  0% {transform:scale(1); opacity:0.8;}
-  50% {transform:scale(1.3); opacity:1;}
-  100% {transform:scale(1); opacity:0.8;}
-}
-
-@keyframes fadeInUp{
-  0%{opacity:0; transform:translateY(25px);}
-  100%{opacity:1; transform:translateY(0);}
-}
-
-@keyframes fadeIn{
-  0%{opacity:0; transform:scale(0.95);}
-  100%{opacity:1; transform:scale(1);}
-}
-
-@keyframes glowAnim{
-  0%{transform:translateX(-50%) scale(1);}
-  100%{transform:translateX(-50%) scale(1.05);}
-}
-
-/* ======= الفيديوهات ======= */
-
-.videos {
-  width:100%;
-  margin-top:20px;
-  padding-top:10px;
-  border-top:1px solid rgba(255,215,0,0.25);
-}
-.videos-title{
-  background:#f5d380;
-  color:#000;
-  padding:10px 18px;
-  font-size:18px;
-  font-weight:700;
-  border-radius:25px;
-  display:inline-block;
-  margin-bottom:15px;
-}
-.videos-scroll{
-  overflow-x:auto;
-  white-space:nowrap;
-  padding-bottom:10px;
-  scrollbar-width:thin;
-  scrollbar-color:#f5d380 #222;
-}
-.videos-scroll::-webkit-scrollbar{
-  height:8px;
-}
-.videos-scroll::-webkit-scrollbar-track{
-  background:#222;
-  border-radius:10px;
-}
-.videos-scroll::-webkit-scrollbar-thumb{
-  background:#f5d380;
-  border-radius:10px;
-}
-.video-box{
-  display:inline-block;
-  width:150px;
-  height:260px;
-  background:#000;
-  border-radius:16px;
-  overflow:hidden;
-  margin:0 10px;
-  border:1px solid rgba(255,215,0,0.25);
-  box-shadow:0 0 15px rgba(255,215,0.2);
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeInUp .8s ease forwards;
-}
-.video-box:nth-child(1){animation-delay:.1s}
-.video-box:nth-child(2){animation-delay:.25s}
-.video-box:nth-child(3){animation-delay:.4s}
-.video-box iframe{
-  width:150px;
-  height:260px;
-  border:0;
-}
-.video-box:hover{
-  transform:scale(1.07);
-  transition:.25s ease;
-  box-shadow:0 0 18px rgba(255,215,0,0.4);
+.info-row a:hover {
+  text-decoration: underline;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <div class="glow"></div>
+<div class="wrapper">
 
-  <div class="top-section">
-
-    <!-- صورة + اسم -->
-    <div class="left-box">
-      <div class="avatar">
-        <img src="https://img.alfrsantv.com/img/f176550047297151.png" alt="Avatar"/>
-      </div>
-      <h1 class="name">ɖƲιιȻ</h1>
-      <div class="wave-text">الحربوقة 🐍</div>
-      <div class="wave-text">أم لسان طويل</div>
+  <!-- الصورة -->
+  <div>
+    <div class="profile-pic">
+      <img src="https://i.ibb.co/7y0ykkC/avatar.png" alt="profile">
     </div>
 
-    <!-- مربع المعلومات يمين الصورة -->
-    <div class="info-box">
-
-      <div class="info-row">
-        <span class="question">البلد:</span>
-        <span class="answer">مصر</span>
-      </div>
-
-      <div class="info-row">
-        <span class="question">اللون:</span>
-        <span class="answer">بينك</span>
-      </div>
-
-      <div class="info-row">
-        <span class="question">المزاج:</span>
-        <span class="answer">رايق</span>
-      </div>
-
-      <div class="info-row">
-        <span class="question">الشات:</span>
-        <a href="https://xat.com/melodylovers" target="_blank">شات ميلودى</a>
-      </div>
-
+    <div class="text-box">
+      <div class="name">Mahmoud</div>
+      <div class="moving-text">أهلاً بيك ♥</div>
+      <div class="moving-text" style="animation-delay: 1s;">نورت الصفحة ✨</div>
     </div>
-
   </div>
 
-  <div class="quotes">
-    <span>أحبك فقط بسبب شخصيتك، وليس لما تمتلكه…</span>
-    <span>أحبك لما تصنعه بي، ولما تضيفه لروحي وجودك.</span>
-  </div>
+  <!-- البطاقات -->
+  <div class="info-box">
 
-  <div class="heart">❤</div>
+    <div class="info-row">
+      <div class="q">البلد:</div>
+      <div class="a">مصر</div>
+    </div>
 
-  <div class="videos">
-    <div class="videos-title">فيديوهاتي</div>
-    <div class="videos-scroll">
-      <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/1uMZhJeXLYw" allowfullscreen></iframe>
-      </div>
-      <div class="video-box">
-        <iframe src="https://www.youtube.youtube.com/embed/mcp5fsJ8dw8" allowfullscreen></iframe>
-      </div>
-      <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/HVgy8Ge0GJQ" allowfullscreen></iframe>
+    <div class="info-row">
+      <div class="q">اللون:</div>
+      <div class="a">بينك</div>
+    </div>
+
+    <div class="info-row">
+      <div class="q">المزاج:</div>
+      <div class="a">رايق</div>
+    </div>
+
+    <div class="info-row">
+      <div class="q">الشات:</div>
+      <div class="a">
+        شات ميلودى — 
+        <a href="https://xat.com/melodylovers" target="_blank">اضغط هنا</a>
       </div>
     </div>
+
   </div>
 
 </div>

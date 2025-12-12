@@ -19,7 +19,7 @@ body {
 }
 .card {
   width:100%;
-  max-width:750px;
+  max-width:800px;
   background:#111;
   border:1px solid rgba(255,215,0,0.25);
   border-radius:30px;
@@ -31,7 +31,6 @@ body {
   animation:fadeIn 1s ease;
 }
 
-/* قسم أعلى البطاقة */
 .top-section {
   display: flex;
   justify-content:flex-start;
@@ -40,7 +39,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* جزء الصورة والاسم والعبارات */
+/* الجزء الأيسر: الصورة والاسم */
 .left-box {
   display: flex;
   flex-direction: column;
@@ -92,13 +91,13 @@ h1.name {
   100% { transform: translateY(-6px); }
 }
 
-/* جزء المعلومات بالأسئلة على اليمين */
+/* الجزء الأيمن: الأسئلة + صندوق الإجابة */
 .info-box {
   display: flex;
   flex-direction: column;
-  gap:15px;
   align-items: flex-end;
-  margin-top:0;
+  gap:10px;
+  width:200px;
 }
 
 .info-item button {
@@ -118,16 +117,15 @@ h1.name {
   background: rgba(255,215,0,0.2);
 }
 
-.info-text {
-  margin-top:6px;
+.answer-box {
+  margin-top:15px;
   background: rgba(255,215,0,0.1);
   border:1px solid #f5d380;
-  border-radius:10px;
-  padding:6px 10px;
-  display:none;
+  border-radius:12px;
+  padding:12px;
+  min-height:60px;
   color:#fff;
   text-align:right;
-  min-width:100px;
   transition:0.3s;
 }
 
@@ -157,7 +155,6 @@ h1.name {
   100%{opacity:1; transform:translateY(0);}
 }
 
-/* القلب */
 .heart {
   font-size:40px;
   margin-top:15px;
@@ -256,23 +253,23 @@ h1.name {
       <div class="wave-text">أم لسان طويل</div>
     </div>
 
-    <!-- الجزء الأيمن: الأسئلة والأجوبة -->
+    <!-- الجزء الأيمن: الأسئلة العمودية + صندوق الإجابة -->
     <div class="info-box">
       <div class="info-item">
-        <button onclick="toggleAnswer(this)">🌍 البلد</button>
-        <div class="info-text">مصر</div>
+        <button onclick="showAnswer('مصر')">🌍 البلد</button>
       </div>
       <div class="info-item">
-        <button onclick="toggleAnswer(this)">🎨 اللون المفضل</button>
-        <div class="info-text">ذهبي</div>
+        <button onclick="showAnswer('ذهبي')">🎨 اللون المفضل</button>
       </div>
       <div class="info-item">
-        <button onclick="toggleAnswer(this)">🎵 الموسيقى</button>
-        <div class="info-text">كلاسيكي</div>
+        <button onclick="showAnswer('كلاسيكي')">🎵 الموسيقى</button>
       </div>
       <div class="info-item">
-        <button onclick="toggleAnswer(this)">😊 المزاج</button>
-        <div class="info-text">هادئ</div>
+        <button onclick="showAnswer('هادئ')">😊 المزاج</button>
+      </div>
+
+      <div class="answer-box" id="answerBox">
+        اضغط على أي سؤال لعرض الإجابة
       </div>
     </div>
   </div>
@@ -302,9 +299,8 @@ h1.name {
 </div>
 
 <script>
-function toggleAnswer(btn){
-  const answer = btn.nextElementSibling;
-  answer.style.display = answer.style.display === "block" ? "none" : "block";
+function showAnswer(text){
+  document.getElementById('answerBox').textContent = text;
 }
 </script>
 

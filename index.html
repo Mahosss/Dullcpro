@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dullc</title>
+<title>Dullc Edition</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
@@ -31,13 +31,6 @@ body {
   animation:fadeIn 1s ease;
 }
 
-.top-section {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-}
-
 .glow {
   position:absolute;
   top:-40%; left:50%; transform:translateX(-50%);
@@ -60,6 +53,7 @@ body {
   z-index:2;
   overflow:hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin:0 auto;
 }
 .avatar img {
   width:100%;
@@ -73,29 +67,9 @@ body {
   box-shadow:0 0 30px rgba(255,215,0,0.6);
 }
 
-.side-text-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 20px;
-}
-.text-line {
-  color: #f5d380;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 5px;
-  animation: upDown 2s ease-in-out infinite alternate;
-}
-.text-line:nth-child(2) {
-  animation-delay: 0.3s;
-}
-@keyframes upDown {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
-}
-
+/* الاسم تحت الصورة */
 h1 {
-  margin:10px 0 5px;
+  margin:15px 0 5px;
   font-size:30px;
   letter-spacing:2px;
   background: linear-gradient(90deg, #f5d380, #fff6d0, #f5d380);
@@ -104,9 +78,21 @@ h1 {
   animation:shine 4s linear infinite;
   text-shadow:0 0 8px rgba(255,215,0,0.3);
 }
-@keyframes shine {
-  0% {background-position:-150px;} 
-  100% {background-position:150px;} 
+
+/* الجملة الجديدة تحت الاسم بتأثير الموجة */
+.wave-text {
+  font-size:16px;
+  color:#f5d380;
+  display:inline-block;
+  animation:wave 1.5s ease-in-out infinite;
+  margin-bottom:20px;
+}
+@keyframes wave {
+  0% { transform: translateY(0px);}
+  25% { transform: translateY(-4px);}
+  50% { transform: translateY(0px);}
+  75% { transform: translateY(4px);}
+  100% { transform: translateY(0px);}
 }
 
 .quotes{
@@ -158,6 +144,7 @@ h1 {
   100%{transform:translateX(-50%) scale(1.05);}
 }
 
+/* قسم الفيديوهات */
 .videos {
   width:100%;
   margin-top:20px;
@@ -225,16 +212,10 @@ h1 {
 <div class="card">
   <div class="glow"></div>
 
-  <div class="top-section">
-    <div class="avatar"><img src="https://img.alfrsantv.com/img/f176550047297151.png" alt="Avatar"/></div>
-
-    <div class="side-text-right">
-      <div class="text-line">الأفعى</div>
-      <div class="text-line">أهم لسان طويل</div>
-    </div>
-  </div>
+  <div class="avatar"><img src="https://img.alfrsantv.com/img/f176550047297151.png" alt="Avatar"/></div>
 
   <h1>ɖƲιιȻ</h1>
+  <div class="wave-text">مرحبا بك في صفحتي ✨</div>
 
   <div class="quotes">
     <span>أحبك فقط بسبب شخصيتك، وليس لما تمتلكه…</span>

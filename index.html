@@ -19,7 +19,7 @@ body {
 }
 .card {
   width:100%;
-  max-width:700px;
+  max-width:750px;
   background:#111;
   border:1px solid rgba(255,215,0,0.25);
   border-radius:30px;
@@ -36,7 +36,7 @@ body {
   width: 100%;
   margin-bottom: 20px;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   gap: 25px;
 }
 
@@ -87,25 +87,40 @@ body {
   animation-delay:0.3s;
 }
 
+@keyframes wave {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+/* صندوق المعلومات الأفقية */
 .info-box {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   gap: 12px;
-  color: #f5d380;
-  font-size:14px;
-  text-align: left;
+  flex-wrap: wrap;
+  justify-content:flex-start;
 }
 
 .info-item {
   display: flex;
   align-items: center;
   gap: 6px;
+  background: rgba(255,215,0,0.1);
+  padding: 8px 12px;
+  border-radius: 12px;
+  border:1px solid rgba(255,215,0,0.3);
+  font-size:14px;
+  min-width: 90px;
+  justify-content:center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.info-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
 .info-item i {
   font-style: normal;
-  color: #fff; /* أيقونة باللون الأبيض */
+  color:#fff;
 }
 
 .glow {
@@ -165,12 +180,6 @@ body {
 @keyframes glowAnim{
   0%{transform:translateX(-50%) scale(1);}
   100%{transform:translateX(-50%) scale(1.05);}
-}
-
-@keyframes wave {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-  100% { transform: translateY(0); }
 }
 
 /* قسم الفيديوهات */
@@ -252,10 +261,10 @@ body {
     </div>
 
     <div class="info-box">
-      <div class="info-item"><i>🌍</i> البلد: مصر</div>
-      <div class="info-item"><i>🎨</i> اللون المفضل: ذهبي</div>
-      <div class="info-item"><i>🎵</i> الموسيقى: كلاسيكي</div>
-      <div class="info-item"><i>😊</i> المزاج: هادئ</div>
+      <div class="info-item"><i>🌍</i> مصر</div>
+      <div class="info-item"><i>🎨</i> ذهبي</div>
+      <div class="info-item"><i>🎵</i> كلاسيكي</div>
+      <div class="info-item"><i>😊</i> هادئ</div>
     </div>
   </div>
 

@@ -86,7 +86,7 @@ h1.name {
   100% { transform: translateY(-6px); }
 }
 
-/* ======== الكروت الجانبية للمعلومات ======== */
+/* ======== كروت المعلومات ======== */
 .info-box {
   display:flex;
   flex-direction:column;
@@ -110,24 +110,23 @@ h1.name {
   background:rgba(255,215,0,0.12);
   box-shadow:0 0 10px rgba(255,215,0,0.4);
 }
-.info-row span.question {
+.info-row .question {
   font-weight:700;
   font-size:15px;
   color:#f5d380;
   display:flex;
   align-items:center;
   gap:5px;
+  order:1; /* السؤال دائمًا أولًا */
 }
-.info-row span.answer, .info-row a.answer {
+.info-row .answer {
   font-size:15px;
   color:#fff;
+  order:2; /* الإجابة بعد السؤال */
 }
 .info-row a.answer {
   text-decoration:none;
   font-weight:700;
-}
-.info-row i {
-  color:#f5d380;
 }
 
 /* ======== باقي التنسيقات ======== */

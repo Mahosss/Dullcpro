@@ -115,15 +115,17 @@ h1.name {
   display: flex;
   align-items: center;
   gap:10px;
+  justify-content: flex-end;
 }
 .info-row button {
   background:#f5d380;
   color:#000;
   border:none;
   padding:5px 12px;
-  border-radius:8px;
+  border-radius:16px;
   cursor:default;
   font-weight:700;
+  white-space: nowrap;
 }
 .info-row span {
   color:#f5d380;
@@ -184,7 +186,7 @@ h1.name {
 .video-box:hover{
   transform:scale(1.07);
   transition:.25s ease;
-  box-shadow:0 0 18px rgba(255,215,0.4);
+  box-shadow:0 0 18px rgba(255,215,0,0.4);
 }
 </style>
 </head>
@@ -205,24 +207,24 @@ h1.name {
 
   <div class="info-section">
     <div class="info-row">
-      <button>البلد</button>
       <span>مصر</span>
+      <button>البلد</button>
     </div>
     <div class="info-row">
-      <button>اللون المفضل</button>
       <span>أصفر</span>
+      <button>اللون المفضل</button>
     </div>
     <div class="info-row">
-      <button>الموسيقى</button>
       <span>روك</span>
+      <button>الموسيقى</button>
     </div>
     <div class="info-row">
-      <button>المزاج</button>
       <span>مرتاح</span>
+      <button>المزاج</button>
     </div>
     <div class="info-row">
-      <button>الشات</button>
       <span>شات ميلودى - <a href="https://mahosss.github.io/Dullcpro/" style="color:#f5d380; text-decoration:underline;">الرابط</a></span>
+      <button>الشات</button>
     </div>
   </div>
 

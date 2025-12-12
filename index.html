@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dullc</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
 
 * {margin:0; padding:0; box-sizing:border-box; font-family:"Tajawal", sans-serif;}
 body {
@@ -32,18 +32,17 @@ body {
   animation:fadeIn 1s ease;
 }
 
-/* الصورة والاسم */
+/* ============ الصورة والاسم يمين-يسار ============ */
 .top-section {
   display: flex;
   width: 100%;
   margin-bottom: 20px;
-  align-items: flex-start;
-  gap: 20px;
 }
 .left-box {
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center; 
+  margin-right: auto;  
 }
 .avatar {
   width:130px;
@@ -88,55 +87,48 @@ h1.name {
   100% { transform: translateY(-6px); }
 }
 
-/* بطاقات المعلومات جهة اليمين */
+/* ============ كروت المعلومات info-row ============ */
 .info-box {
   display:flex;
   flex-direction:column;
   gap:12px;
-  margin-left:auto;
+  margin-right:20px;
   margin-top:10px;
 }
 .info-row {
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  background: linear-gradient(145deg, rgba(255,215,0,0.15), rgba(255,215,0,0.05));
-  border:1px solid rgba(255,215,0,0.35);
-  padding:10px 15px;
-  border-radius:15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,215,0,0.25);
+  padding: 10px 14px;
+  border-radius: 12px;
   min-width:180px;
   box-shadow: 0 0 10px rgba(255,215,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
+  direction: rtl;
 }
 .info-row:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(255,215,0,0.5);
+  box-shadow: 0 0 18px rgba(255,215,0,0.5);
+  transform: translateY(-2px);
 }
 .info-row i {
   color:#f5d380;
   margin-left:8px;
-  min-width:18px;
-  text-align:center;
+  font-size:16px;
 }
 .info-row span.question {
   font-weight:700;
   font-size:15px;
   color:#f5d380;
-  margin-left:5px;
+  margin-right:8px;
 }
 .info-row span.answer {
   font-size:15px;
   color:#fff;
-  margin-left:auto;
-}
-.info-row a {
-  color:#f5d380;
-  text-decoration:none;
-  font-weight:700;
-  margin-left:auto;
 }
 
-/* باقي التنسيق */
+/* ============ باقي التنسيق ============ */
 .glow {
   position:absolute;
   top:-40%; left:50%; transform:translateX(-50%);
@@ -155,7 +147,7 @@ h1.name {
   padding:15px;
   border-radius:20px;
   border:1px solid rgba(255,215,0,0.12);
-  box-shadow:0 0 12px rgba(255,215,0.07);
+  box-shadow:0 0 12px rgba(255,215,0,0.07);
   animation:fadeInUp 1s ease forwards 0.5s;
 }
 .quotes span{
@@ -194,7 +186,7 @@ h1.name {
   100%{transform:translateX(-50%) scale(1.05);}
 }
 
-/* الفيديوهات */
+/* ======= الفيديوهات ======= */
 .videos {
   width:100%;
   margin-top:20px;
@@ -272,29 +264,25 @@ h1.name {
       <div class="wave-text">أم لسان طويل</div>
     </div>
 
+    <!-- مربع المعلومات يمين الصورة -->
     <div class="info-box">
       <div class="info-row">
-        <i class="fas fa-map-marker-alt"></i>
-        <span class="question">البلد:</span>
+        <span class="question"><i class="fas fa-map-marker-alt"></i> البلد:</span>
         <span class="answer">مصر</span>
       </div>
       <div class="info-row">
-        <i class="fas fa-palette"></i>
-        <span class="question">اللون:</span>
+        <span class="question"><i class="fas fa-palette"></i> اللون:</span>
         <span class="answer">بينك</span>
       </div>
       <div class="info-row">
-        <i class="fas fa-smile"></i>
-        <span class="question">المزاج:</span>
+        <span class="question"><i class="fas fa-smile"></i> المزاج:</span>
         <span class="answer">رايق</span>
       </div>
       <div class="info-row">
-        <i class="fas fa-comments"></i>
-        <span class="question">الشات:</span>
-        <a href="https://xat.com/melodylovers" target="_blank">شات ميلودى</a>
+        <span class="question"><i class="fas fa-comments"></i> الشات:</span>
+        <a class="answer" href="https://xat.com/melodylovers" target="_blank">شات ميلودى</a>
       </div>
     </div>
-
   </div>
 
   <div class="quotes">

@@ -28,13 +28,54 @@ body {
   box-shadow:0 0 25px rgba(255,215,0,0.15);
   position:relative;
   overflow:hidden;
+  animation:fadeIn 1s ease;
 }
+
+/* ============ شكل الاسئلة يمين الصورة ============ */
+.info-box {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-right:20px;
+  margin-top:10px;
+}
+
+.info-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#1a1a1a;
+  border:1px solid rgba(255,215,0,0.25);
+  padding:10px 14px;
+  border-radius:12px;
+  min-width:180px;
+}
+
+.info-row span.question {
+  font-weight:700;
+  font-size:15px;
+  color:#f5d380;
+}
+
+.info-row span.answer {
+  font-size:15px;
+  color:#fff;
+}
+
+.info-row a {
+  color:#f5d380;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* ============ الصورة والاسم يمين-يسار ============ */
 
 .top-section {
   display: flex;
   width: 100%;
   margin-bottom: 20px;
 }
+
 .left-box {
   display: flex;
   flex-direction: column;
@@ -51,12 +92,18 @@ body {
   background:#000;
   box-shadow:0 0 18px rgba(255,215,0,0.4);
   overflow:hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .avatar img {
   width:100%;
   height:100%;
   border-radius:50%;
   object-fit:cover;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.avatar:hover img {
+  transform: scale(1.25);
+  box-shadow:0 0 30px rgba(255,215,0,0.6);
 }
 
 h1.name {
@@ -71,7 +118,18 @@ h1.name {
   font-size:14px;
   text-align:center;
   margin:2px 0;
+  animation:wave 2s ease-in-out infinite alternate;
 }
+.wave-text:nth-child(3) {
+  animation-delay:0.3s;
+}
+
+@keyframes wave {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* ============ باقي التنسيق كما هوا ============ */
 
 .glow {
   position:absolute;
@@ -80,57 +138,64 @@ h1.name {
   background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
   filter:blur(70px);
   z-index:0;
+  animation:glowAnim 3s ease-in-out infinite alternate;
 }
 
 .quotes{
   margin-top:18px;
   font-size:17px;
   line-height:1.9;
+  opacity:0;
   background:rgba(255,215,0,0.05);
   padding:15px;
   border-radius:20px;
   border:1px solid rgba(255,215,0,0.12);
   box-shadow:0 0 12px rgba(255,215,0,0.07);
+  animation:fadeInUp 1s ease forwards 0.5s;
 }
 .quotes span{
   display:block;
   margin-bottom:10px;
+  opacity:0;
+  animation:quoteAppear 0.8s ease forwards;
+}
+.quotes span:nth-child(1){animation-delay:0.7s}
+.quotes span:nth-child(2){animation-delay:1s}
+
+@keyframes quoteAppear{
+  0%{opacity:0; transform:translateY(15px);}
+  100%{opacity:1; transform:translateY(0);}
 }
 
 .heart {
   font-size:40px;
   margin-top:15px;
+  animation:pulse 1.4s infinite ease-in-out, fadeInUp 1s ease forwards 1.2s;
+  opacity:0;
 }
 
-.info-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap:12px;
-  margin-left:auto; /* يجبرها على اليمين */
+@keyframes pulse {
+  0% {transform:scale(1); opacity:0.8;}
+  50% {transform:scale(1.3); opacity:1;}
+  100% {transform:scale(1); opacity:0.8;}
 }
 
-.info-row {
-  display: flex;
-  align-items: center;
-  gap:10px;
-  justify-content: flex-end;
+@keyframes fadeInUp{
+  0%{opacity:0; transform:translateY(25px);}
+  100%{opacity:1; transform:translateY(0);}
 }
-.info-row button {
-  background:#f5d380;
-  color:#000;
-  border:none;
-  padding:5px 12px;
-  border-radius:16px;
-  cursor:default;
-  font-weight:700;
-  white-space: nowrap;
+
+@keyframes fadeIn{
+  0%{opacity:0; transform:scale(0.95);}
+  100%{opacity:1; transform:scale(1);}
 }
-.info-row span {
-  color:#f5d380;
-  font-size:15px;
+
+@keyframes glowAnim{
+  0%{transform:translateX(-50%) scale(1);}
+  100%{transform:translateX(-50%) scale(1.05);}
 }
+
+/* ======= الفيديوهات ======= */
 
 .videos {
   width:100%;
@@ -152,6 +217,19 @@ h1.name {
   overflow-x:auto;
   white-space:nowrap;
   padding-bottom:10px;
+  scrollbar-width:thin;
+  scrollbar-color:#f5d380 #222;
+}
+.videos-scroll::-webkit-scrollbar{
+  height:8px;
+}
+.videos-scroll::-webkit-scrollbar-track{
+  background:#222;
+  border-radius:10px;
+}
+.videos-scroll::-webkit-scrollbar-thumb{
+  background:#f5d380;
+  border-radius:10px;
 }
 .video-box{
   display:inline-block;
@@ -163,7 +241,13 @@ h1.name {
   margin:0 10px;
   border:1px solid rgba(255,215,0,0.25);
   box-shadow:0 0 15px rgba(255,215,0.2);
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp .8s ease forwards;
 }
+.video-box:nth-child(1){animation-delay:.1s}
+.video-box:nth-child(2){animation-delay:.25s}
+.video-box:nth-child(3){animation-delay:.4s}
 .video-box iframe{
   width:150px;
   height:260px;
@@ -176,10 +260,15 @@ h1.name {
 }
 </style>
 </head>
+
 <body>
+
 <div class="card">
+  <div class="glow"></div>
 
   <div class="top-section">
+
+    <!-- صورة + اسم -->
     <div class="left-box">
       <div class="avatar">
         <img src="https://img.alfrsantv.com/img/f176550047297151.png" alt="Avatar"/>
@@ -189,28 +278,31 @@ h1.name {
       <div class="wave-text">أم لسان طويل</div>
     </div>
 
-    <div class="info-section">
+    <!-- مربع المعلومات يمين الصورة -->
+    <div class="info-box">
+
       <div class="info-row">
-        <button>البلد</button>
-        <span>مصر</span>
+        <span class="question">البلد:</span>
+        <span class="answer">مصر</span>
       </div>
+
       <div class="info-row">
-        <button>اللون المفضل</button>
-        <span>أصفر</span>
+        <span class="question">اللون:</span>
+        <span class="answer">بينك</span>
       </div>
+
       <div class="info-row">
-        <button>الموسيقى</button>
-        <span>روك</span>
+        <span class="question">المزاج:</span>
+        <span class="answer">رايق</span>
       </div>
+
       <div class="info-row">
-        <button>المزاج</button>
-        <span>مرتاح</span>
+        <span class="question">الشات:</span>
+        <a href="https://xat.com/melodylovers" target="_blank">شات ميلودى</a>
       </div>
-      <div class="info-row">
-        <button>الشات</button>
-        <span>شات ميلودى - <a href="https://mahosss.github.io/Dullcpro/" style="color:#f5d380; text-decoration:underline;">الرابط</a></span>
-      </div>
+
     </div>
+
   </div>
 
   <div class="quotes">
@@ -236,5 +328,6 @@ h1.name {
   </div>
 
 </div>
+
 </body>
 </html>

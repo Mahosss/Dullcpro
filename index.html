@@ -124,6 +124,70 @@ h1 {
   0%{transform:translateX(-50%) scale(1);}
   100%{transform:translateX(-50%) scale(1.05);}
 }
+
+/* قسم الفيديوهات */
+.videos {
+  width:100%;
+  margin-top:20px;
+  padding-top:10px;
+  border-top:1px solid rgba(255,215,0,0.25);
+}
+.videos-title{
+  background:#f5d380;
+  color:#000;
+  padding:10px 18px;
+  font-size:18px;
+  font-weight:700;
+  border-radius:25px;
+  display:inline-block;
+  margin-bottom:15px;
+}
+.videos-scroll{
+  overflow-x:auto;
+  white-space:nowrap;
+  padding-bottom:10px;
+  scrollbar-width:thin;
+  scrollbar-color:#f5d380 #222;
+}
+.videos-scroll::-webkit-scrollbar{
+  height:8px;
+}
+.videos-scroll::-webkit-scrollbar-track{
+  background:#222;
+  border-radius:10px;
+}
+.videos-scroll::-webkit-scrollbar-thumb{
+  background:#f5d380;
+  border-radius:10px;
+}
+.video-box{
+  display:inline-block;
+  width:150px;
+  height:260px;
+  background:#000;
+  border-radius:16px;
+  overflow:hidden;
+  margin:0 10px;
+  border:1px solid rgba(255,215,0,0.25);
+  box-shadow:0 0 15px rgba(255,215,0,0.2);
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp .8s ease forwards;
+}
+.video-box:nth-child(1){animation-delay:.1s}
+.video-box:nth-child(2){animation-delay:.25s}
+.video-box:nth-child(3){animation-delay:.4s}
+.video-box:nth-child(4){animation-delay:.55s}
+.video-box iframe{
+  width:150px;
+  height:260px;
+  border:0;
+}
+.video-box:hover{
+  transform:scale(1.07);
+  transition:.25s ease;
+  box-shadow:0 0 18px rgba(255,215,0,0.4);
+}
 </style>
 </head>
 <body>
@@ -138,6 +202,21 @@ h1 {
   </div>
 
   <div class="heart">❤</div>
+
+  <div class="videos">
+    <div class="videos-title">فيديوهاتي</div>
+    <div class="videos-scroll">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/1uMZhJeXLYw" allowfullscreen></iframe>
+      </div>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/mcp5fsJ8dw8" allowfullscreen></iframe>
+      </div>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/HVgy8Ge0GJQ" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
 </div>
 </body>

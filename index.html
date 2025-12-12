@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dullc Edition</title>
+<title>Dullc</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
@@ -17,7 +17,6 @@ body {
   min-height:100vh;
   padding:25px;
 }
-
 .card {
   width:100%;
   max-width:600px;
@@ -32,6 +31,13 @@ body {
   animation:fadeIn 1s ease;
 }
 
+.top-section {
+  display: flex;
+  align-items:flex-start;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
 .glow {
   position:absolute;
   top:-40%; left:50%; transform:translateX(-50%);
@@ -42,14 +48,6 @@ body {
   animation:glowAnim 3s ease-in-out infinite alternate;
 }
 
-/* الصورة والاسم والجملتين تحت الاسم */
-.left-section {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-bottom:20px;
-}
-
 .avatar {
   width:130px;
   height:130px;
@@ -58,7 +56,10 @@ body {
   padding:5px;
   background:#000;
   box-shadow:0 0 18px rgba(255,215,0,0.4);
+  position:relative;
+  z-index:2;
   overflow:hidden;
+  margin-left:0; /* يبقى على اليسار */
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .avatar img {
@@ -74,8 +75,8 @@ body {
 }
 
 h1 {
-  margin:10px 0 5px;
-  font-size:28px;
+  margin:10px auto 5px; /* متوسط تحت الصورة */
+  font-size:30px;
   letter-spacing:2px;
   background: linear-gradient(90deg, #f5d380, #fff6d0, #f5d380);
   -webkit-background-clip:text;
@@ -84,29 +85,40 @@ h1 {
   text-shadow:0 0 8px rgba(255,215,0,0.3);
 }
 
-.wave-text {
-  font-size:14px;
-  color:#ffd700;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:3px;
-}
-.wave-text span{
-  display:inline-block;
-  animation:wave 1.5s ease-in-out infinite alternate;
-}
-.wave-text span:nth-child(2){
-  animation-delay:0.3s;
-}
-@keyframes wave{
-  0%,100%{transform: translateY(0);}
-  50%{transform: translateY(-3px);}
+@keyframes shine {
+  0% {background-position:-150px;} 
+  100% {background-position:150px;} 
 }
 
-/* الاقتباسات */
+/* نصوص تحت الاسم */
+.side-text-below {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:5px;
+}
+.side-text-below span {
+  font-size:14px;
+  color:#f5d380;
+  display:flex;
+  align-items:center;
+  margin:2px 0;
+  animation:wave 2s ease-in-out infinite alternate;
+}
+.side-text-below span svg {
+  margin-left:6px;
+  width:16px;
+  height:16px;
+  fill:#f5d380;
+}
+
+@keyframes wave {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-5px); }
+}
+
 .quotes{
-  margin-top:20px;
+  margin-top:18px;
   font-size:17px;
   line-height:1.9;
   opacity:0;
@@ -114,7 +126,7 @@ h1 {
   padding:15px;
   border-radius:20px;
   border:1px solid rgba(255,215,0,0.12);
-  box-shadow:0 0 12px rgba(255,215,0,0.07);
+  box-shadow:0 0 12px rgba(255,215,0.07);
   animation:fadeInUp 1s ease forwards 0.5s;
 }
 .quotes span{
@@ -130,11 +142,9 @@ h1 {
   100%{opacity:1; transform:translateY(0);}
 }
 
-/* القلب */
 .heart {
   font-size:40px;
   margin-top:15px;
-  color:#f5d380;
   animation:pulse 1.4s infinite ease-in-out, fadeInUp 1s ease forwards 1.2s;
   opacity:0;
 }
@@ -156,7 +166,7 @@ h1 {
   100%{transform:translateX(-50%) scale(1.05);}
 }
 
-/* الفيديوهات */
+/* قسم الفيديوهات */
 .videos {
   width:100%;
   margin-top:20px;
@@ -222,29 +232,28 @@ h1 {
 </head>
 <body>
 <div class="card">
-
   <div class="glow"></div>
 
-  <!-- الصورة والاسم والجملتين تحت الاسم -->
-  <div class="left-section">
+  <div class="top-section">
     <div class="avatar"><img src="https://img.alfrsantv.com/img/f176550047297151.png" alt="Avatar"/></div>
+    
     <h1>ɖƲιιȻ</h1>
-    <div class="wave-text">
-      <span>الحربوقة</span>
+    
+    <div class="side-text-below">
+      <span>الحربوقة
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 2C18 2 2 18 2 32s16 30 30 30 30-16 30-30S46 2 32 2zm0 4c14 0 26 12 26 26S46 58 32 58 6 46 6 32 18 6 32 6z"/></svg>
+      </span>
       <span>أم لسان طويل</span>
     </div>
   </div>
 
-  <!-- الاقتباسات -->
   <div class="quotes">
     <span>أحبك فقط بسبب شخصيتك، وليس لما تمتلكه…</span>
     <span>أحبك لما تصنعه بي، ولما تضيفه لروحي وجودك.</span>
   </div>
 
-  <!-- القلب -->
   <div class="heart">❤</div>
 
-  <!-- الفيديوهات -->
   <div class="videos">
     <div class="videos-title">فيديوهاتي</div>
     <div class="videos-scroll">

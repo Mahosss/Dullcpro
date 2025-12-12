@@ -19,7 +19,7 @@ body {
 }
 .card {
   width:100%;
-  max-width:600px;
+  max-width:700px;
   background:#111;
   border:1px solid rgba(255,215,0,0.25);
   border-radius:30px;
@@ -35,12 +35,15 @@ body {
   display: flex;
   width: 100%;
   margin-bottom: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 25px;
 }
+
 .left-box {
   display: flex;
   flex-direction: column;
   align-items: center; 
-  margin-right: auto;  
 }
 
 .avatar {
@@ -66,7 +69,7 @@ body {
   box-shadow:0 0 30px rgba(255,215,0,0.6);
 }
 
-h1.name {
+.name {
   margin:10px 0 5px;
   font-size:28px;
   color:#f5d380;
@@ -84,9 +87,25 @@ h1.name {
   animation-delay:0.3s;
 }
 
-@keyframes wave {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
+.info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  color: #f5d380;
+  font-size:14px;
+  text-align: left;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-item i {
+  font-style: normal;
+  color: #fff; /* أيقونة باللون الأبيض */
 }
 
 .glow {
@@ -148,6 +167,13 @@ h1.name {
   100%{transform:translateX(-50%) scale(1.05);}
 }
 
+@keyframes wave {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+/* قسم الفيديوهات */
 .videos {
   width:100%;
   margin-top:20px;
@@ -209,43 +235,6 @@ h1.name {
   transition:.25s ease;
   box-shadow:0 0 18px rgba(255,215,0,0.4);
 }
-
-
-
-
-
-
-
-
-.info-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 20px;
-  gap: 10px;
-}
-
-.info-line {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #f5d380;
-}
-
-.info-icon {
-  margin-right: 5px;
-  font-size: 16px;
-}
-
-.info-title {
-  font-weight: 600;
-  margin-right: 3px;
-}
-
-.info-value {
-  font-weight: 400;
-  color: #fff6d0;
-}
 </style>
 </head>
 <body>
@@ -261,30 +250,14 @@ h1.name {
       <div class="wave-text">الحربوقة 🐍</div>
       <div class="wave-text">أم لسان طويل</div>
     </div>
+
+    <div class="info-box">
+      <div class="info-item"><i>🌍</i> البلد: مصر</div>
+      <div class="info-item"><i>🎨</i> اللون المفضل: ذهبي</div>
+      <div class="info-item"><i>🎵</i> الموسيقى: كلاسيكي</div>
+      <div class="info-item"><i>😊</i> المزاج: هادئ</div>
+    </div>
   </div>
-  
-<div class="info-section">
-  <div class="info-line">
-    <span class="info-icon">🌍</span>
-    <span class="info-title">البلد:</span>
-    <span class="info-value">مصر</span>
-  </div>
-  <div class="info-line">
-    <span class="info-icon">🎨</span>
-    <span class="info-title">اللون المفضل:</span>
-    <span class="info-value">ذهبي</span>
-  </div>
-  <div class="info-line">
-    <span class="info-icon">🎵</span>
-    <span class="info-title">الموسيقى:</span>
-    <span class="info-value">هادئة</span>
-  </div>
-  <div class="info-line">
-    <span class="info-icon">✨</span>
-    <span class="info-title">المزاج:</span>
-    <span class="info-value">مرح</span>
-  </div>
-</div>
 
   <div class="quotes">
     <span>أحبك فقط بسبب شخصيتك، وليس لما تمتلكه…</span>

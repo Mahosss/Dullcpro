@@ -52,8 +52,8 @@ body {
   height:130px;
   border-radius:50%;
   border:4px solid #f5d380;
-  padding:0px;
-  background:#000;
+  padding:0;
+  background: transparent; /* إزالة الدائرة السوداء */
   box-shadow:0 0 18px rgba(255,215,0,0.4);
   overflow:hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -282,7 +282,7 @@ h1.name {
 .snowflake {
   position: absolute;
   top: -10px;
-  color: ##EFBF04;
+  color: #EFBF04; /* ذهبي */
   font-size: 8px;
   user-select: none;
   pointer-events: none;
@@ -327,7 +327,7 @@ h1.name {
       <div class="info-row">
         <i class="fas fa-palette"></i>
         <span class="question">اللون:</span>
-        <span class="answer">اسود</span>
+        <span class="answer">أسود</span>
       </div>
 
       <div class="info-row">
@@ -376,7 +376,7 @@ const snowContainer = document.getElementById('snow-container');
 function createSnowflake() {
   const snowflake = document.createElement('div');
   snowflake.classList.add('snowflake');
-  snowflake.style.left = Math.random() * 130 + 'px'; // عرض الصورة
+  snowflake.style.left = Math.random() * 130 + 'px';
   snowflake.style.animationDuration = 2 + Math.random() * 3 + 's';
   snowflake.style.fontSize = 6 + Math.random() * 6 + 'px';
   snowflake.textContent = '❄';

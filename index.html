@@ -62,7 +62,7 @@ body {
   z-index: 2;
 }
 
-/* ======== الصورة الشخصية مع Zoom ======== */
+/* ======== الصورة الشخصية مع Zoom على الصورة فقط ======== */
 .avatar {
   width:130px;
   height:130px;
@@ -73,8 +73,8 @@ body {
   box-shadow:0 0 18px rgba(175,8,86,0.4);
   overflow:hidden;
   position: relative;
-  transition: transform 0.5s ease;
 }
+
 .avatar img {
   width:100%;
   height:100%;
@@ -82,8 +82,10 @@ body {
   object-fit:cover;
   user-select: none; 
   pointer-events: none; 
+  transition: transform 0.5s ease;
 }
-.avatar:hover {
+
+.avatar:hover img {
   transform: scale(1.25);
 }
 
@@ -92,15 +94,6 @@ h1.name {
   font-size:28px;
   color:#af0856;
   text-align:center;
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
-
-/* fir */
-.name .verified {
-  color:#1da1f2;
-  font-size:18px;
 }
 
 .wave-text {
@@ -119,7 +112,7 @@ h1.name {
   z-index:0;
 }
 
-/* ======== الاقتباسات ======== */
+/* ======== الاقتباسات بدون تأثيرات ======== */
 .quotes{
   margin-top:18px;
   font-size:17px;
@@ -192,7 +185,7 @@ h1.name {
   box-shadow:0 0 18px rgba(175,8,86,0.4);
 }
 
-/* ======= ثلوج ======= */
+/* ======= ثلوج الصورة ======= */
 #snow-container {
   position: absolute;
   top: 0;
@@ -236,7 +229,7 @@ h1.name {
         <img src="https://img.alfrsantv.com/img/f176635888499821.png" alt="Avatar"/>
         <div id="snow-container"></div>
       </div>
-      <h1 class="name">ɖƲιιȻ <i class="fas fa-check-circle verified"></i></h1>
+      <h1 class="name">ɖƲιιȻ <i class="fas fa-circle-check" style="color:#af0856;"></i></h1>
       <div class="wave-text">الحربوقة 🐍 أم لسان طويل</div>
       <div class="wave-text"></div>
     </div>

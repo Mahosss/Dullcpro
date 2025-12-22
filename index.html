@@ -62,6 +62,7 @@ body {
   z-index: 2;
 }
 
+/* ======== الصورة الشخصية مع Zoom ======== */
 .avatar {
   width:130px;
   height:130px;
@@ -72,6 +73,7 @@ body {
   box-shadow:0 0 18px rgba(175,8,86,0.4);
   overflow:hidden;
   position: relative;
+  transition: transform 0.5s ease;
 }
 .avatar img {
   width:100%;
@@ -81,12 +83,24 @@ body {
   user-select: none; 
   pointer-events: none; 
 }
+.avatar:hover {
+  transform: scale(1.25);
+}
 
 h1.name {
   margin:10px 0 5px;
   font-size:28px;
   color:#af0856;
   text-align:center;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+/* علامة التوثيق */
+.name .verified {
+  color:#1da1f2; /* لون أزرق مثل توثيق الفيس */
+  font-size:18px;
 }
 
 .wave-text {
@@ -222,8 +236,8 @@ h1.name {
         <img src="https://img.alfrsantv.com/img/f176635888499821.png" alt="Avatar"/>
         <div id="snow-container"></div>
       </div>
-      <h1 class="name">ɖƲιιȻ</h1>
-      <div class="wave-text">أم لسان طويل 🐍 الحربوقة</div>
+      <h1 class="name">ɖƲιιȻ <i class="fas fa-check-circle verified"></i></h1>
+      <div class="wave-text">الحربوقة 🐍 أم لسان طويل</div>
       <div class="wave-text"></div>
     </div>
 

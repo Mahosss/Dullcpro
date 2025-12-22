@@ -105,61 +105,46 @@ h1.name {
   z-index:0;
 }
 
-/* ======== بطاقات المعلومات أفقي في سطر واحد ======== */
-.info-box {
-  display: flex;
-  flex-wrap: nowrap; 
-  justify-content: center;
-  gap:10px;
-  margin-top:15px;
-  z-index:2;
-  overflow-x:auto; 
-  padding-bottom:5px;
-}
-
-.info-row {
-  display:flex;
-  align-items:center;
-  gap:5px;
-  background: #1a1a1a;
-  border:1px solid rgba(255,215,0,0.25);
-  padding:6px 10px;
-  border-radius:12px;
-  box-shadow: 0 0 10px rgba(255,215,0,0.2);
-  font-size:13px;
-  white-space: nowrap; 
-}
-.info-row i {
-  color:#f5d380;
-  font-size:14px;
-}
-.info-row span.question {
-  font-weight:700;
-  color:#f5d380;
-}
-.info-row span.answer, .info-row a {
-  color:#fff;
-  font-weight:500;
-}
-.info-row a {
-  color:#f5d380;
-  text-decoration:none;
-}
-
-/* ======== الاقتباسات بدون تأثيرات ======== */
+/* ======== الاقتباسات مع التأثيرات ======== */
 .quotes{
   margin-top:18px;
   font-size:17px;
   line-height:1.9;
+  opacity:0;
   background:rgba(255,215,0,0.05);
   padding:15px;
   border-radius:20px;
-  border:1px solid rgba(255,215,0.12);
-  box-shadow:0 0 12px rgba(255,215,0.07);
+  border:1px solid rgba(255,215,0,0.12);
+  box-shadow:0 0 12px rgba(255,215,0,0.07);
+  animation:fadeInUp 1s ease forwards 0.5s;
 }
 .quotes span{
   display:block;
   margin-bottom:10px;
+  opacity:0;
+  animation:quoteAppear 0.8s ease forwards;
+}
+.quotes span:nth-child(1){animation-delay:0.7s}
+.quotes span:nth-child(2){animation-delay:1s}
+
+@keyframes quoteAppear{
+  0%{opacity:0; transform:translateY(15px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeInUp{
+  0%{opacity:0; transform:translateY(25px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeIn{
+  0%{opacity:0; transform:scale(0.95);}
+  100%{opacity:1; transform:scale(1);}
+}
+
+@keyframes glowAnim{
+  0%{transform:translateX(-50%) scale(1);}
+  100%{transform:translateX(-50%) scale(1.05);}
 }
 
 /* ======= الفيديوهات ======= */
@@ -266,28 +251,6 @@ h1.name {
       <h1 class="name">ɖƲιιȻ</h1>
       <div class="wave-text">الحربوقة 🐍</div>
       <div class="wave-text">أم لسان طويل</div>
-    </div>
-
-    <div class="info-box">
-      <div class="info-row">
-        <span class="question">البلد:</span>
-        <span class="answer">مصر</span>
-      </div>
-
-      <div class="info-row">
-        <span class="question">المزاج:</span>
-        <span class="answer">متقلب</span>
-      </div>
-
-      <div class="info-row">
-        <span class="question">اللون:</span>
-        <span class="answer">أسود</span>
-      </div>
-
-      <div class="info-row">
-        <span class="question">الشات:</span>
-        <a href="https://xat.com/melodylovers" target="_blank">شات ميلودى</a>
-      </div>
     </div>
 
   </div>

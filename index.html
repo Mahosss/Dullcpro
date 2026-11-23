@@ -1,281 +1,387 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>QuEEEN</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11111d">
+  <meta name="description" content="Dulc — Personal Space">
+  <title>Dulc</title>
 
-* {margin:0; padding:0; box-sizing:border-box; font-family:"Tajawal", sans-serif;}
-body {
-  background:#0b0b0b;
-  color:#645662;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  min-height:100vh;
-  padding:25px;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-.card {
-  width:100%;
-  max-width:600px;
-  background:#111;
-  border:1px solid rgba(175,8,86,0.25);
-  border-radius:30px;
-  padding:35px 20px 45px;
-  text-align:center;
-  box-shadow:0 0 25px rgba(175,8,86,0.15);
-  position:relative;
-  overflow:hidden;
-}
+  <style>
+    :root {
+      --bg: #0b0b14;
+      --panel: rgba(24, 24, 39, .78);
+      --panel-strong: rgba(30, 29, 49, .92);
+      --line: rgba(210, 199, 255, .12);
+      --text: #f5f2ff;
+      --muted: #aaa6bd;
+      --purple: #a78bfa;
+      --pink: #e6a6df;
+      --blue: #7aa7ff;
+      --shadow: 0 22px 70px rgba(0, 0, 0, .38);
+    }
 
-/* ======= COVER صورة ======= */
-.cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 140px;
-  background: url('https://img.alfrsantv.com/img/f176636174587211.jpg') center/cover no-repeat; 
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  z-index: 0;
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Tajawal", sans-serif;
+      background:
+        radial-gradient(ellipse at 12% 10%, rgba(115, 79, 190, .24), transparent 34%),
+        radial-gradient(ellipse at 90% 28%, rgba(62, 102, 184, .17), transparent 32%),
+        radial-gradient(ellipse at 55% 100%, rgba(156, 89, 157, .13), transparent 38%),
+        var(--bg);
+      overflow-x: hidden;
+    }
 
-.top-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 60px; 
-  position: relative;
-  z-index: 2; 
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .13;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      z-index: -1;
+    }
 
-.left-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  position: relative;
-  z-index: 2;
-}
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .page-shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 34px 0 28px; }
 
-.avatar {
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  border:4px solid #af0856;
-  padding:0;
-  background: transparent;
-  box-shadow:0 0 18px rgba(175,8,86,0.4);
-  overflow:hidden;
-  position: relative;
-}
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; margin-bottom: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border: 1px solid rgba(207, 187, 255, .25); border-radius: 14px;
+      color: #e6d8ff; background: linear-gradient(145deg, rgba(167,139,250,.28), rgba(122,167,255,.09));
+      box-shadow: 0 8px 28px rgba(137, 104, 218, .18);
+    }
+    .brand-name { font: 700 17px "DM Sans", sans-serif; letter-spacing: .12em; }
+    .brand-sub { color: var(--muted); font-size: 11px; margin-top: 3px; }
+    .top-status {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px;
+      border: 1px solid var(--line); border-radius: 30px;
+      background: rgba(255,255,255,.035); color: #d9d4e8; font-size: 12px;
+    }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #70e0ad; box-shadow: 0 0 12px #70e0ad; }
 
-.avatar img {
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  user-select: none; 
-  pointer-events: none; 
-  transition: transform 0.5s ease;
-}
+    .dashboard {
+      display: grid;
+      grid-template-columns: minmax(270px,  .92fr) minmax(0, 1.55fr) minmax(235px, .78fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .panel {
+      position: relative; overflow: hidden; border: 1px solid var(--line);
+      border-radius: 25px; background: linear-gradient(145deg, rgba(34,33,54,.86), rgba(18,18,31,.83));
+      box-shadow: var(--shadow); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    }
+    .panel::before {
+      content: ""; position: absolute; width: 190px; height: 190px; border-radius: 50%;
+      background: rgba(155, 125, 255, .08); filter: blur(55px); top: -110px; inset-inline-end: -70px;
+      pointer-events: none;
+    }
 
-.avatar:hover img {
-  transform: scale(1.25);
-}
+    /* الصورة والهوية */
+    .identity-panel { padding: 16px; }
+    .portrait-wrap {
+      position: relative; height: 355px; overflow: hidden; border-radius: 19px;
+      background: linear-gradient(145deg, #39334f, #171727);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .portrait-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .portrait-wrap::after {
+      content: ""; position: absolute; inset: 35% 0 0;
+      background: linear-gradient(180deg, transparent, rgba(8,8,17,.9));
+      pointer-events: none;
+    }
+    .portrait-label {
+      position: absolute; z-index: 1; bottom: 17px; right: 18px; left: 18px;
+      display: flex; justify-content: space-between; align-items: end; gap: 10px;
+    }
+    .portrait-label small { color: #e4dafa; font: 500 10px "DM Sans", sans-serif; letter-spacing: .2em; }
+    .portrait-label strong { display: block; font: 700 30px "DM Sans", sans-serif; letter-spacing: .03em; margin-top: 4px; }
+    .verified {
+      width: 29px; height: 29px; display: grid; place-items: center; border-radius: 50%;
+      background: rgba(167,139,250,.92); color: #171323; font-size: 12px;
+      box-shadow: 0 0 20px rgba(167,139,250,.4);
+    }
+    .identity-copy { padding: 17px 5px 4px; }
+    .eyebrow { color: var(--purple); font: 600 10px "DM Sans", sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+    .identity-copy h1 { margin: 7px 0 7px; font: 700 27px "DM Sans", sans-serif; letter-spacing: .04em; }
+    .identity-copy p { color: var(--muted); line-height: 1.8; font-size: 13px; margin: 0; }
+    .mini-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .mini-tags span {
+      padding: 6px 10px; border-radius: 30px; font-size: 11px; color: #d8cafa;
+      border: 1px solid rgba(167,139,250,.18); background: rgba(167,139,250,.08);
+    }
 
-h1.name {
-  margin:10px 0 5px;
-  font-size:28px;
-  color:#af0856;
-  text-align:center;
-}
+    /* الوسط */
+    .main-column { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+    .welcome-panel { padding: 23px 24px 21px; min-height: 148px; }
+    .welcome-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .welcome-panel h2 { font-size: 24px; margin: 8px 0 5px; font-weight: 700; }
+    .welcome-panel p { color: var(--muted); font-size: 13px; margin: 0; }
+    .sparkle {
+      width: 47px; height: 47px; display: grid; place-items: center; border-radius: 16px;
+      color: #e5d6ff; font-size: 18px; border: 1px solid rgba(194,166,255,.2);
+      background: linear-gradient(145deg, rgba(167,139,250,.22), rgba(122,167,255,.08));
+    }
+    .section-heading { display: flex; justify-content: space-between; align-items: center; margin: 1px 2px 11px; }
+    .section-heading h3 { font-size: 15px; margin: 0; font-weight: 700; }
+    .section-heading span { color: var(--muted); font: 10px "DM Sans", sans-serif; letter-spacing: .12em; }
 
-.wave-text {
-  color:#dfccc6;
-  font-size:14px;
-  text-align:center;
-  margin:2px 0;
-}
+    .info-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+    .info-card {
+      min-height: 105px; padding: 15px 14px; border: 1px solid var(--line); border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .info-card:hover { transform: translateY(-4px); border-color: rgba(181,155,255,.35); background: rgba(167,139,250,.09); }
+    .info-icon {
+      width: 29px; height: 29px; display: grid; place-items: center; border-radius: 10px;
+      color: #c9b4ff; background: rgba(167,139,250,.12); font-size: 12px; margin-bottom: 11px;
+    }
+    .info-label { color: var(--muted); font-size: 11px; margin-bottom: 4px; }
+    .info-value { color: #f4efff; font-size: 14px; font-weight: 700; }
 
-.glow {
-  position:absolute;
-  top:-40%; left:50%; transform:translateX(-50%);
-  width:400px; height:400px;
-  background: radial-gradient(circle, rgba(175,8,86,0.25), transparent 70%);
-  filter:blur(70px);
-  z-index:0;
-}
+    .quote-panel { padding: 19px 21px; display: flex; align-items: center; gap: 15px; }
+    .quote-mark { color: #c5a9ff; font: 700 42px Georgia, serif; line-height: .7; opacity: .85; }
+    .quote-panel p { margin: 0; color: #d6d0e4; font-size: 13px; line-height: 1.9; }
+    .quote-panel small { display: block; color: var(--muted); margin-top: 6px; font: 10px "DM Sans", sans-serif; letter-spacing: .1em; }
 
-/* ======== الاقتباسات  ======== */
-.quotes{
-  margin-top:18px;
-  font-size:17px;
-  line-height:1.9;
-  background:#dfccc6;
-  padding:15px;
-  border-radius:20px;
-  border:1px solid #762966;
-  box-shadow:0 0 12px #762966;
-}
-.quotes span{
-  display:block;
-  margin-bottom:10px;
-}
+    /* العمود الجانبي */
+    .side-column { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+    .mood-panel, .social-panel { padding: 20px; }
+    .mood-value { display: flex; align-items: center; gap: 12px; margin-top: 17px; }
+    .mood-emoji {
+      width: 49px; height: 49px; display: grid; place-items: center; border-radius: 16px;
+      background: linear-gradient(145deg, rgba(230,166,223,.18), rgba(167,139,250,.13));
+      border: 1px solid rgba(230,166,223,.18); font-size: 23px;
+    }
+    .mood-value strong { display: block; font-size: 16px; }
+    .mood-value span { display: block; color: var(--muted); font-size: 11px; margin-top: 3px; }
+    .music-panel { padding: 19px; }
+    .track-art {
+      height: 145px; overflow: hidden; border-radius: 16px; margin: 14px 0 13px;
+      background: linear-gradient(135deg, #44335f, #18223c); position: relative;
+    }
+    .track-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .track-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(8,8,17,.3), transparent); }
+    .track-meta strong { display: block; font-size: 14px; }
+    .track-meta span { display: block; color: var(--muted); font-size: 11px; margin-top: 4px; }
+    audio { width: 100%; height: 36px; margin-top: 13px; accent-color: var(--purple); }
+    .music-note { color: var(--muted); font-size: 10px; line-height: 1.6; margin: 7px 0 0; }
+    .social-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 15px; }
+    .social-link {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px;
+      min-height: 62px; border: 1px solid var(--line); border-radius: 14px;
+      background: rgba(255,255,255,.035); color: #d9d1ee; font-size: 16px;
+      transition: .2s ease;
+    }
+    .social-link span { font-size: 10px; color: var(--muted); }
+    .social-link:hover { color: #fff; background: rgba(167,139,250,.14); transform: translateY(-3px); }
 
-/* ======= الفيديوهات ======= */
-.videos {
-  width:100%;
-  margin-top:20px;
-  padding-top:10px;
-  border-top:1px solid rgba(175,8,86,0.25);
-}
-.videos-title{
-  background:#af0856;
-  color:#000;
-  padding:10px 18px;
-  font-size:18px;
-  font-weight:700;
-  border-radius:25px;
-  display:inline-block;
-  margin-bottom:15px;
-}
-.videos-scroll{
-  overflow-x:auto;
-  white-space:nowrap;
-  padding-bottom:10px;
-  scrollbar-width:thin;
-  scrollbar-color:#af0856 #222;
-}
-.videos-scroll::-webkit-scrollbar{
-  height:8px;
-}
-.videos-scroll::-webkit-scrollbar-track{
-  background:#222;
-  border-radius:10px;
-}
-.videos-scroll::-webkit-scrollbar-thumb{
-  background:#af0856;
-  border-radius:10px;
-}
-.video-box{
-  display:inline-block;
-  width:150px;
-  height:260px;
-  background:#000;
-  border-radius:16px;
-  overflow:hidden;
-  margin:0 10px;
-  border:1px solid rgba(175,8,86,0.25);
-  box-shadow:0 0 15px rgba(175,8,86,0.2);
-}
-.video-box iframe{
-  width:150px;
-  height:260px;
-  border:0;
-}
-.video-box:hover{
-  transform:scale(1.07);
-  transition:.25s ease;
-  box-shadow:0 0 18px rgba(175,8,86,0.4);
-}
+    footer { text-align: center; color: #77738a; font: 10px "DM Sans", sans-serif; letter-spacing: .17em; padding: 24px 0 0; }
 
-/* ======= ثلوج الصورة ======= */
-#snow-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.snowflake {
-  position: absolute;
-  top: -10px;
-  color: #af0856;
-  font-size: 8px;
-  user-select: none;
-  pointer-events: none;
-  opacity: 0.8;
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes fall {
-  0% { transform: translateY(0) rotate(0deg); opacity:0.8; }
-  100% { transform: translateY(150px) rotate(360deg); opacity:0; }
-}
-</style>
+    @media (max-width: 1000px) {
+      .dashboard { grid-template-columns: minmax(240px, .85fr) minmax(0, 1.35fr); }
+      .side-column { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .music-panel { grid-row: span 2; }
+    }
+    @media (max-width: 680px) {
+      .page-shell { width: min(100% - 22px, 520px); padding-top: 18px; }
+      .topbar { margin-bottom: 15px; }
+      .dashboard { grid-template-columns: 1fr; gap: 13px; }
+      .identity-panel { display: grid; grid-template-columns: 115px 1fr; gap: 13px; align-items: center; padding: 12px; }
+      .portrait-wrap { height: 142px; border-radius: 15px; }
+      .portrait-label { right: 9px; bottom: 9px; left: 9px; }
+      .portrait-label small { font-size: 8px; }
+      .portrait-label strong { font-size: 18px; }
+      .verified { width: 23px; height: 23px; font-size: 10px; }
+      .identity-copy { padding: 3px 0; }
+      .identity-copy h1 { font-size: 21px; margin: 5px 0; }
+      .identity-copy p { font-size: 11px; line-height: 1.6; }
+      .mini-tags { gap: 5px; margin-top: 8px; }
+      .mini-tags span { font-size: 9px; padding: 4px 7px; }
+      .main-column { gap: 13px; }
+      .welcome-panel { padding: 18px; min-height: auto; }
+      .welcome-panel h2 { font-size: 20px; }
+      .info-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+      .info-card { min-height: 94px; padding: 12px; }
+      .side-column { display: flex; grid-column: auto; gap: 13px; }
+      .music-panel { grid-row: auto; }
+      .track-art { height: 175px; }
+      .quote-panel { padding: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
 </head>
 <body>
-
-<div class="card">
-  <div class="glow"></div>
-  <div class="cover"></div>
-
-  <div class="top-section">
-
-    <div class="left-box">
-      <div class="avatar">
-        <img src="https://img.alfrsantv.com/img/f176635888499821.png" alt="Avatar"/>
-        <div id="snow-container"></div>
+  <main class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-sparkles"></i></div>
+        <div>
+          <div class="brand-name">DULC</div>
+          <div class="brand-sub">PERSONAL SPACE</div>
+        </div>
       </div>
-      <h1 class="name">ɖƲιιȻ <i class="fas fa-circle-check" style="color:#af0856;"></i></h1>
-      <div class="wave-text">ستايلش الشات 🐍</div>
-      <div class="wave-text"></div>
-    </div>
+      <div class="top-status"><span class="live-dot"></span> A little corner of my world</div>
+    </header>
 
-  </div>
+    <section class="dashboard">
+      <!-- العمود الأول: الصورة والهوية -->
+      <article class="panel identity-panel">
+        <div class="portrait-wrap">
+          <!-- استبدلي assets/dulc.jpg بصورة البروفايل -->
+          <img src="https://img.alfrsantv.com/img/f179531695007231.png" alt="Dulc portrait"
+               onerror="this.style.display='none'; this.parentElement.style.background='radial-gradient(circle at 50% 30%, #8870aa, #25243c 58%, #11111d)';">
+          <div class="portrait-label">
+            <div>
+              <small>THE ONE & ONLY</small>
+              <strong>Dulc</strong>
+            </div>
+            <span class="verified" title="Personal profile"><i class="fa-solid fa-star"></i></span>
+          </div>
+        </div>
+        <div class="identity-copy">
+          <div class="eyebrow">HELLO, I'M</div>
+          <h1>Dulc <span style="color:#b99bff">✦</span></h1>
+          <p>أهلاً بك في عالمي الصغير، مساحة بسيطة تشبهني وتجمع الأشياء التي أحبها.</p>
+          <div class="mini-tags">
+            <span>Dreamer</span><span>Creative soul</span>
+          </div>
+        </div>
+      </article>
 
-  <div class="quotes">
-    <span>أحبك فقط بسبب شخصيتك، وليس لما تمتلكه</span>
-    <span>♥️.أحبك لما تصنعه بي، ولما تضيفه لروحي وجودك</span>
-  </div>
+      <!-- العمود الأوسط: الترحيب والمعلومات -->
+      <div class="main-column">
+        <article class="panel welcome-panel">
+          <div class="welcome-top">
+            <div>
+              <div class="eyebrow">WELCOME TO MY SPACE</div>
+              <h2>Glad you're here <span style="color:#c6a8ff">♡</span></h2>
+              <p>كل تفصيلة هنا تحكي جزءاً صغيراً من حكايتي.</p>
+            </div>
+            <div class="sparkle"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          </div>
+        </article>
 
-  <div class="videos">
-    <div class="videos-title">فيديوهاتي</div>
-    <div class="videos-scroll">
-      <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/1uMZhJeXLYw" allowfullscreen></iframe>
+        <section>
+          <div class="section-heading">
+            <h3>Personal Details</h3>
+            <span>GET TO KNOW ME</span>
+          </div>
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-earth-africa"></i></div>
+              <div class="info-label">البلد</div>
+              <div class="info-value">اكتبي البلد</div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-label">المدينة</div>
+              <div class="info-value">اكتبي المدينة</div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-heart"></i></div>
+              <div class="info-label">الحالة</div>
+              <div class="info-value">اكتبي الحالة</div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="info-label">البرج</div>
+              <div class="info-value">اكتبي البرج</div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-palette"></i></div>
+              <div class="info-label">الهواية</div>
+              <div class="info-value">اكتبي الهواية</div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-mug-hot"></i></div>
+              <div class="info-label">المفضل</div>
+              <div class="info-value">اكتبي الشيء المفضل</div>
+            </div>
+          </div>
+        </section>
+
+        <article class="panel quote-panel">
+          <div class="quote-mark">“</div>
+          <div>
+            <p>كن جميلاً من الداخل، فالجمال الحقيقي لا يحتاج إلى ضوء كي يُرى.</p>
+            <small>A THOUGHT BY DULC</small>
+          </div>
+        </article>
       </div>
-      <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/HVgy8Ge0GJQ" allowfullscreen></iframe>
-      </div>
-      <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/mcp5fsJ8dw8" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
 
-</div>
+      <!-- العمود الثالث: المزاج والموسيقى والتواصل -->
+      <aside class="side-column">
+        <article class="panel mood-panel">
+          <div class="section-heading">
+            <h3>Current Mood</h3>
+            <span>RIGHT NOW</span>
+          </div>
+          <div class="mood-value">
+            <div class="mood-emoji">☁️</div>
+            <div>
+              <strong>مزاج هادئ</strong>
+              <span>Taking it slow today</span>
+            </div>
+          </div>
+        </article>
 
-<script>
-const snowContainer = document.getElementById('snow-container');
+        <article class="panel music-panel">
+          <div class="section-heading">
+            <h3>Now Playing</h3>
+            <span><i class="fa-solid fa-headphones"></i> MY MUSIC</span>
+          </div>
+          <div class="track-art">
+            <!-- استبدلي assets/cover.jpg بصورة غلاف الأغنية -->
+            <img src="assets/cover.jpg" alt="Music cover"
+                 onerror="this.style.display='none'; this.parentElement.style.background='radial-gradient(circle at 50% 30%, #8a6bb7, #272747 60%, #11111d)';">
+          </div>
+          <div class="track-meta">
+            <strong>اسم الأغنية هنا</strong>
+            <span>اسم الفنان هنا</span>
+          </div>
+          <!-- ضعي ملف mp3 داخل مجلد assets وسمّيه song.mp3 -->
+          <audio controls preload="none">
+            <source src="assets/song.mp3" type="audio/mpeg">
+            المتصفح لا يدعم تشغيل الصوت.
+          </audio>
+          <p class="music-note">استبدلي ملف song.mp3 بأغنيتك المفضلة. لن يبدأ التشغيل تلقائياً.</p>
+        </article>
 
-function createSnowflake() {
-  const snowflake = document.createElement('div');
-  snowflake.classList.add('snowflake');
-  snowflake.style.left = Math.random() * 130 + 'px';
-  snowflake.style.animationDuration = 2 + Math.random() * 3 + 's';
-  snowflake.style.fontSize = 6 + Math.random() * 6 + 'px';
-  snowflake.textContent = '❄';
-  snowContainer.appendChild(snowflake);
+        <article class="panel social-panel">
+          <div class="section-heading">
+            <h3>Find Me</h3>
+            <span>LET'S CONNECT</span>
+          </div>
+          <div class="social-links">
+            <!-- استبدلي علامة # برابط الحساب الحقيقي -->
+            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
+            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a>
+          </div>
+        </article>
+      </aside>
+    </section>
 
-  setTimeout(() => {
-    snowflake.remove();
-  }, 5000);
-}
-
-setInterval(createSnowflake, 200);
-</script>
-
+    <footer>MADE WITH ♡ FOR DULC</footer>
+  </main>
 </body>
 </html>

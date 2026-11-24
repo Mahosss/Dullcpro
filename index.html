@@ -28,6 +28,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -53,230 +54,827 @@
 
     a { color: inherit; text-decoration: none; }
     button { font: inherit; }
-    .page-shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 34px 0 28px; }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 34px 0 28px;
+    }
 
     .topbar {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
     }
-    .brand { display: flex; align-items: center; gap: 11px; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
     .brand-mark {
-      width: 42px; height: 42px; display: grid; place-items: center;
-      border: 1px solid rgba(207, 187, 255, .25); border-radius: 14px;
-      color: #e6d8ff; background: linear-gradient(145deg, rgba(167,139,250,.28), rgba(122,167,255,.09));
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(207, 187, 255, .25);
+      border-radius: 14px;
+      color: #e6d8ff;
+      background: linear-gradient(145deg, rgba(167,139,250,.28), rgba(122,167,255,.09));
       box-shadow: 0 8px 28px rgba(137, 104, 218, .18);
     }
-    .brand-name { font: 700 17px "DM Sans", sans-serif; letter-spacing: .12em; }
-    .brand-sub { color: var(--muted); font-size: 11px; margin-top: 3px; }
-    .top-status {
-      display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px;
-      border: 1px solid var(--line); border-radius: 30px;
-      background: rgba(255,255,255,.035); color: #d9d4e8; font-size: 12px;
+
+    .brand-name {
+      font: 700 17px "DM Sans", sans-serif;
+      letter-spacing: .12em;
     }
-    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #70e0ad; box-shadow: 0 0 12px #70e0ad; }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    .top-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: rgba(255,255,255,.035);
+      color: #d9d4e8;
+      font-size: 12px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #70e0ad;
+      box-shadow: 0 0 12px #70e0ad;
+    }
 
     .dashboard {
       display: grid;
-      grid-template-columns: minmax(270px,  .92fr) minmax(0, 1.55fr) minmax(235px, .78fr);
+      grid-template-columns: minmax(270px, .92fr) minmax(0, 1.55fr) minmax(235px, .78fr);
       gap: 18px;
       align-items: stretch;
     }
+
     .panel {
-      position: relative; overflow: hidden; border: 1px solid var(--line);
-      border-radius: 25px; background: linear-gradient(145deg, rgba(34,33,54,.86), rgba(18,18,31,.83));
-      box-shadow: var(--shadow); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      background: linear-gradient(145deg, rgba(34,33,54,.86), rgba(18,18,31,.83));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
+
     .panel::before {
-      content: ""; position: absolute; width: 190px; height: 190px; border-radius: 50%;
-      background: rgba(155, 125, 255, .08); filter: blur(55px); top: -110px; inset-inline-end: -70px;
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: rgba(155, 125, 255, .08);
+      filter: blur(55px);
+      top: -110px;
+      inset-inline-end: -70px;
       pointer-events: none;
     }
 
     /* الصورة والهوية */
+
     .identity-panel { padding: 16px; }
+
     .portrait-wrap {
-      position: relative; height: 355px; overflow: hidden; border-radius: 19px;
+      position: relative;
+      height: 355px;
+      overflow: hidden;
+      border-radius: 19px;
       background: linear-gradient(145deg, #39334f, #171727);
       border: 1px solid rgba(255,255,255,.12);
     }
-    .portrait-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .portrait-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .portrait-wrap::after {
-      content: ""; position: absolute; inset: 35% 0 0;
+      content: "";
+      position: absolute;
+      inset: 35% 0 0;
       background: linear-gradient(180deg, transparent, rgba(8,8,17,.9));
       pointer-events: none;
     }
+
     .portrait-label {
-      position: absolute; z-index: 1; bottom: 17px; right: 18px; left: 18px;
-      display: flex; justify-content: space-between; align-items: end; gap: 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 17px;
+      right: 18px;
+      left: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 10px;
     }
-    .portrait-label small { color: #e4dafa; font: 500 10px "DM Sans", sans-serif; letter-spacing: .2em; }
-    .portrait-label strong { display: block; font: 700 30px "DM Sans", sans-serif; letter-spacing: .03em; margin-top: 4px; }
+
+    .portrait-label small {
+      color: #e4dafa;
+      font: 500 10px "DM Sans", sans-serif;
+      letter-spacing: .2em;
+    }
+
+    .portrait-label strong {
+      display: block;
+      font: 700 30px "DM Sans", sans-serif;
+      letter-spacing: .03em;
+      margin-top: 4px;
+    }
+
     .verified {
-      width: 29px; height: 29px; display: grid; place-items: center; border-radius: 50%;
-      background: rgba(167,139,250,.92); color: #171323; font-size: 12px;
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(167,139,250,.92);
+      color: #171323;
+      font-size: 12px;
       box-shadow: 0 0 20px rgba(167,139,250,.4);
     }
+
     .identity-copy { padding: 17px 5px 4px; }
-    .eyebrow { color: var(--purple); font: 600 10px "DM Sans", sans-serif; letter-spacing: .2em; text-transform: uppercase; }
-    .identity-copy h1 { margin: 7px 0 7px; font: 700 27px "DM Sans", sans-serif; letter-spacing: .04em; }
-    .identity-copy p { color: var(--muted); line-height: 1.8; font-size: 13px; margin: 0; }
-    .mini-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
-    .mini-tags span {
-      padding: 6px 10px; border-radius: 30px; font-size: 11px; color: #d8cafa;
-      border: 1px solid rgba(167,139,250,.18); background: rgba(167,139,250,.08);
+
+    .eyebrow {
+      color: var(--purple);
+      font: 600 10px "DM Sans", sans-serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
     }
 
-    /* الوسط */
-    .main-column { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-    .welcome-panel { padding: 23px 24px 21px; min-height: 148px; }
-    .welcome-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .welcome-panel h2 { font-size: 24px; margin: 8px 0 5px; font-weight: 700; }
-    .welcome-panel p { color: var(--muted); font-size: 13px; margin: 0; }
+    .identity-copy h1 {
+      margin: 7px 0 7px;
+      font: 700 27px "DM Sans", sans-serif;
+      letter-spacing: .04em;
+    }
+
+    .identity-copy p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .mini-tags span {
+      padding: 6px 10px;
+      border-radius: 30px;
+      font-size: 11px;
+      color: #d8cafa;
+      border: 1px solid rgba(167,139,250,.18);
+      background: rgba(167,139,250,.08);
+    }
+
+    /* العمود الأوسط */
+
+    .main-column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .welcome-panel {
+      padding: 23px 24px 21px;
+      min-height: 148px;
+    }
+
+    .welcome-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .welcome-panel h2 {
+      font-size: 24px;
+      margin: 8px 0 5px;
+      font-weight: 700;
+    }
+
+    .welcome-panel p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+    }
+
     .sparkle {
-      width: 47px; height: 47px; display: grid; place-items: center; border-radius: 16px;
-      color: #e5d6ff; font-size: 18px; border: 1px solid rgba(194,166,255,.2);
+      width: 47px;
+      height: 47px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: #e5d6ff;
+      font-size: 18px;
+      border: 1px solid rgba(194,166,255,.2);
       background: linear-gradient(145deg, rgba(167,139,250,.22), rgba(122,167,255,.08));
     }
-    .section-heading { display: flex; justify-content: space-between; align-items: center; margin: 1px 2px 11px; }
-    .section-heading h3 { font-size: 15px; margin: 0; font-weight: 700; }
-    .section-heading span { color: var(--muted); font: 10px "DM Sans", sans-serif; letter-spacing: .12em; }
 
-    .info-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1px 2px 11px;
+    }
+
+    .section-heading h3 {
+      font-size: 15px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .section-heading span {
+      color: var(--muted);
+      font: 10px "DM Sans", sans-serif;
+      letter-spacing: .12em;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px;
+    }
+
     .info-card {
-      min-height: 105px; padding: 15px 14px; border: 1px solid var(--line); border-radius: 18px;
+      min-height: 105px;
+      padding: 15px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
       background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
       transition: transform .25s ease, border-color .25s ease, background .25s ease;
     }
-    .info-card:hover { transform: translateY(-4px); border-color: rgba(181,155,255,.35); background: rgba(167,139,250,.09); }
-    .info-icon {
-      width: 29px; height: 29px; display: grid; place-items: center; border-radius: 10px;
-      color: #c9b4ff; background: rgba(167,139,250,.12); font-size: 12px; margin-bottom: 11px;
-    }
-    .info-label { color: var(--muted); font-size: 11px; margin-bottom: 4px; }
-    .info-value { color: #f4efff; font-size: 14px; font-weight: 700; }
 
-    .quote-panel { padding: 19px 21px; display: flex; align-items: center; gap: 15px; }
-    .quote-mark { color: #c5a9ff; font: 700 42px Georgia, serif; line-height: .7; opacity: .85; }
-    .quote-panel p { margin: 0; color: #d6d0e4; font-size: 13px; line-height: 1.9; }
-    .quote-panel small { display: block; color: var(--muted); margin-top: 6px; font: 10px "DM Sans", sans-serif; letter-spacing: .1em; }
+    .info-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(181,155,255,.35);
+      background: rgba(167,139,250,.09);
+    }
+
+    .info-icon {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: #c9b4ff;
+      background: rgba(167,139,250,.12);
+      font-size: 12px;
+      margin-bottom: 11px;
+    }
+
+    .info-label {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      color: #f4efff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .quote-panel {
+      padding: 19px 21px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .quote-mark {
+      color: #c5a9ff;
+      font: 700 42px Georgia, serif;
+      line-height: .7;
+      opacity: .85;
+    }
+
+    .quote-panel p {
+      margin: 0;
+      color: #d6d0e4;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .quote-panel small {
+      display: block;
+      color: var(--muted);
+      margin-top: 6px;
+      font: 10px "DM Sans", sans-serif;
+      letter-spacing: .1em;
+    }
 
     /* العمود الجانبي */
-    .side-column { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-width: 0;
+    }
+
     .mood-panel, .social-panel { padding: 20px; }
-    .mood-value { display: flex; align-items: center; gap: 12px; margin-top: 17px; }
+
+    .mood-value {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 17px;
+    }
+
     .mood-emoji {
-      width: 49px; height: 49px; display: grid; place-items: center; border-radius: 16px;
+      width: 49px;
+      height: 49px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
       background: linear-gradient(145deg, rgba(230,166,223,.18), rgba(167,139,250,.13));
-      border: 1px solid rgba(230,166,223,.18); font-size: 23px;
+      border: 1px solid rgba(230,166,223,.18);
+      font-size: 23px;
     }
-    .mood-value strong { display: block; font-size: 16px; }
-    .mood-value span { display: block; color: var(--muted); font-size: 11px; margin-top: 3px; }
+
+    .mood-value strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .mood-value span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    /* مشغل الموسيقى الجديد */
+
     .music-panel { padding: 19px; }
-    .track-art {
-      height: 145px; overflow: hidden; border-radius: 16px; margin: 14px 0 13px;
-      background: linear-gradient(135deg, #44335f, #18223c); position: relative;
+
+    .music-cover {
+      height: 180px;
+      overflow: hidden;
+      border-radius: 17px;
+      margin: 14px 0 14px;
+      background: linear-gradient(135deg, #44335f, #18223c);
+      position: relative;
     }
-    .track-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .track-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(8,8,17,.3), transparent); }
-    .track-meta strong { display: block; font-size: 14px; }
-    .track-meta span { display: block; color: var(--muted); font-size: 11px; margin-top: 4px; }
-    audio { width: 100%; height: 36px; margin-top: 13px; accent-color: var(--purple); }
-    .music-note { color: var(--muted); font-size: 10px; line-height: 1.6; margin: 7px 0 0; }
-    .social-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 15px; }
+
+    .music-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity .25s ease;
+    }
+
+    .music-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(8,8,17,.3), transparent);
+      pointer-events: none;
+    }
+
+    .track-meta {
+      text-align: center;
+      margin: 12px 0;
+    }
+
+    .track-meta strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .track-meta span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    /* أزرار التحكم */
+
+    .player-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 26px;
+      margin: 15px 0;
+      direction: ltr;
+    }
+
+    .player-controls button {
+      border: 0;
+      background: transparent;
+      color: #c9b4ff;
+      font-size: 18px;
+      cursor: pointer;
+      transition: .2s ease;
+      padding: 8px;
+    }
+
+    .player-controls button:hover {
+      color: #fff;
+      transform: scale(1.12);
+    }
+
+    .player-controls .play-button {
+      width: 49px;
+      height: 49px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a78bfa, #e6a6df);
+      color: #171323;
+      font-size: 17px;
+      box-shadow: 0 5px 20px rgba(167,139,250,.3);
+    }
+
+    /* شريط التقدم */
+
+    .progress-area {
+      margin-top: 12px;
+    }
+
+    #musicProgress {
+      width: 100%;
+      height: 5px;
+      display: block;
+      cursor: pointer;
+      accent-color: #c6a8ff;
+      direction: ltr;
+    }
+
+    .time-row {
+      display: flex;
+      justify-content: space-between;
+      direction: ltr;
+      color: var(--muted);
+      font: 10px "DM Sans", sans-serif;
+      margin-top: 7px;
+    }
+
+    /* قائمة الأغاني */
+
+    .playlist {
+      margin-top: 20px;
+      border-top: 1px solid var(--line);
+      padding-top: 15px;
+    }
+
+    .playlist-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 11px;
+    }
+
+    .playlist-title span {
+      color: var(--muted);
+      font: 10px "DM Sans", sans-serif;
+    }
+
+    .playlist-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 9px;
+      margin-bottom: 7px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      background: rgba(255,255,255,.025);
+      color: var(--text);
+      text-align: right;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .playlist-item:hover {
+      background: rgba(167,139,250,.08);
+      border-color: rgba(167,139,250,.17);
+    }
+
+    .playlist-item.active {
+      background: rgba(167,139,250,.12);
+      border-color: rgba(167,139,250,.3);
+    }
+
+    .playlist-item.active .song-number {
+      color: #d3baff;
+    }
+
+    .song-thumb {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #302447;
+    }
+
+    .song-number {
+      color: #a99cbe;
+      font: 10px "DM Sans", sans-serif;
+    }
+
+    .playlist-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .playlist-info strong {
+      display: block;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .playlist-info small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 4px;
+    }
+
+    .song-indicator {
+      color: #c6a8ff;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .music-panel audio { display: none; }
+
+    /* روابط التواصل */
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 15px;
+    }
+
     .social-link {
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px;
-      min-height: 62px; border: 1px solid var(--line); border-radius: 14px;
-      background: rgba(255,255,255,.035); color: #d9d1ee; font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 62px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.035);
+      color: #d9d1ee;
+      font-size: 16px;
       transition: .2s ease;
     }
-    .social-link span { font-size: 10px; color: var(--muted); }
-    .social-link:hover { color: #fff; background: rgba(167,139,250,.14); transform: translateY(-3px); }
 
-    footer { text-align: center; color: #77738a; font: 10px "DM Sans", sans-serif; letter-spacing: .17em; padding: 24px 0 0; }
+    .social-link span {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .social-link:hover {
+      color: #fff;
+      background: rgba(167,139,250,.14);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      color: #77738a;
+      font: 10px "DM Sans", sans-serif;
+      letter-spacing: .17em;
+      padding: 24px 0 0;
+    }
+
+    /* التابلت */
 
     @media (max-width: 1000px) {
-      .dashboard { grid-template-columns: minmax(240px, .85fr) minmax(0, 1.35fr); }
-      .side-column { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .dashboard {
+        grid-template-columns: minmax(240px, .85fr) minmax(0, 1.35fr);
+      }
+
+      .side-column {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
       .music-panel { grid-row: span 2; }
     }
+
+    /* الموبايل */
+
     @media (max-width: 680px) {
-      .page-shell { width: min(100% - 22px, 520px); padding-top: 18px; }
+      .page-shell {
+        width: min(100% - 22px, 520px);
+        padding-top: 18px;
+      }
+
       .topbar { margin-bottom: 15px; }
-      .dashboard { grid-template-columns: 1fr; gap: 13px; }
-      .identity-panel { display: grid; grid-template-columns: 115px 1fr; gap: 13px; align-items: center; padding: 12px; }
-      .portrait-wrap { height: 142px; border-radius: 15px; }
-      .portrait-label { right: 9px; bottom: 9px; left: 9px; }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+        gap: 13px;
+      }
+
+      .identity-panel {
+        display: grid;
+        grid-template-columns: 115px 1fr;
+        gap: 13px;
+        align-items: center;
+        padding: 12px;
+      }
+
+      .portrait-wrap {
+        height: 142px;
+        border-radius: 15px;
+      }
+
+      .portrait-label {
+        right: 9px;
+        bottom: 9px;
+        left: 9px;
+      }
+
       .portrait-label small { font-size: 8px; }
       .portrait-label strong { font-size: 18px; }
-      .verified { width: 23px; height: 23px; font-size: 10px; }
+
+      .verified {
+        width: 23px;
+        height: 23px;
+        font-size: 10px;
+      }
+
       .identity-copy { padding: 3px 0; }
-      .identity-copy h1 { font-size: 21px; margin: 5px 0; }
-      .identity-copy p { font-size: 11px; line-height: 1.6; }
-      .mini-tags { gap: 5px; margin-top: 8px; }
-      .mini-tags span { font-size: 9px; padding: 4px 7px; }
+
+      .identity-copy h1 {
+        font-size: 21px;
+        margin: 5px 0;
+      }
+
+      .identity-copy p {
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .mini-tags {
+        gap: 5px;
+        margin-top: 8px;
+      }
+
+      .mini-tags span {
+        font-size: 9px;
+        padding: 4px 7px;
+      }
+
       .main-column { gap: 13px; }
-      .welcome-panel { padding: 18px; min-height: auto; }
+
+      .welcome-panel {
+        padding: 18px;
+        min-height: auto;
+      }
+
       .welcome-panel h2 { font-size: 20px; }
-      .info-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
-      .info-card { min-height: 94px; padding: 12px; }
-      .side-column { display: flex; grid-column: auto; gap: 13px; }
+
+      .info-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 8px;
+      }
+
+      .info-card {
+        min-height: 94px;
+        padding: 12px;
+      }
+
+      .side-column {
+        display: flex;
+        grid-column: auto;
+        gap: 13px;
+      }
+
       .music-panel { grid-row: auto; }
-      .track-art { height: 175px; }
+
+      .music-cover { height: 210px; }
+
       .quote-panel { padding: 16px; }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <main class="page-shell">
+
     <header class="topbar">
       <div class="brand">
-        <div class="brand-mark"><i class="fa-solid fa-sparkles"></i></div>
+        <div class="brand-mark">
+          <i class="fa-solid fa-sparkles"></i>
+        </div>
         <div>
           <div class="brand-name">DULC</div>
           <div class="brand-sub">PERSONAL SPACE</div>
         </div>
       </div>
-      <div class="top-status"><span class="live-dot"></span> زاوية صغيرة من عالمى</div>
+
+      <div class="top-status">
+        <span class="live-dot"></span>
+        زاوية صغيرة من عالمى
+      </div>
     </header>
 
     <section class="dashboard">
+
       <!-- العمود الأول: الصورة والهوية -->
+
       <article class="panel identity-panel">
         <div class="portrait-wrap">
-          <!-- استبدلي assets/dulc.jpg بصورة البروفايل -->
-          <img src="https://img.alfrsantv.com/img/f179531695007231.png" alt="Dulc portrait"
-               onerror="this.style.display='none'; this.parentElement.style.background='radial-gradient(circle at 50% 30%, #8870aa, #25243c 58%, #11111d)';">
+
+          <img
+            src="https://img.alfrsantv.com/img/f179531695007231.png"
+            alt="Dulc portrait"
+            onerror="this.style.display='none'; this.parentElement.style.background='radial-gradient(circle at 50% 30%, #8870aa, #25243c 58%, #11111d)';"
+          >
+
           <div class="portrait-label">
             <div>
               <small>THE ONE & ONLY</small>
               <strong>Dulc</strong>
             </div>
-            <span class="verified" title="Personal profile"><i class="fa-solid fa-star"></i></span>
+            <span class="verified" title="Personal profile">
+              <i class="fa-solid fa-star"></i>
+            </span>
           </div>
         </div>
+
         <div class="identity-copy">
           <div class="eyebrow">HELLO, I'M</div>
           <h1>Dulc <span style="color:#b99bff">✦</span></h1>
-          <p>اهتم بالتفاصيل الصغيرة والأشياء البسيطة، امتلك قلباً طيباً وشخصية لا تشبه أحداً. اتحلى بالرقة والقوة، احب الضحك واللحظات الحلوة، واؤمن أن الجمال الحقيقي في نقاء القلب وصدق المشاعر. ❤️</p>
+
+          <p>
+            اهتم بالتفاصيل الصغيرة والأشياء البسيطة، امتلك قلباً طيباً وشخصية لا تشبه أحداً. اتحلى بالرقة والقوة، احب الضحك واللحظات الحلوة، واؤمن أن الجمال الحقيقي في نقاء القلب وصدق المشاعر. ❤️
+          </p>
+
           <div class="mini-tags">
-            <span>Dreamer</span><span>Creative soul</span>
+            <span>Dreamer</span>
+            <span>Creative soul</span>
           </div>
         </div>
       </article>
 
       <!-- العمود الأوسط: الترحيب والمعلومات -->
+
       <div class="main-column">
+
         <article class="panel welcome-panel">
           <div class="welcome-top">
             <div>
               <div class="eyebrow">اهلا بيكم فى بروفايلى</div>
-              <h2>يارب تكونو مبسوطين معايه <span style="color:#c6a8ff">♡</span></h2>
+              <h2>
+                يارب تكونو مبسوطين معايه
+                <span style="color:#c6a8ff">♡</span>
+              </h2>
               <p>كل تفصيلة هنا تحكي جزءاً صغيراً من حكايتي.</p>
             </div>
-            <div class="sparkle"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+
+            <div class="sparkle">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
           </div>
         </article>
 
@@ -285,37 +883,57 @@
             <h3>Personal Details</h3>
             <span>GET TO KNOW ME</span>
           </div>
+
           <div class="info-grid">
+
             <div class="info-card">
-              <div class="info-icon"><i class="fa-solid fa-earth-africa"></i></div>
+              <div class="info-icon">
+                <i class="fa-solid fa-earth-africa"></i>
+              </div>
               <div class="info-label">البلد</div>
               <div class="info-value">مصر</div>
             </div>
+
             <div class="info-card">
-              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
               <div class="info-label">المدينة</div>
               <div class="info-value">مصر</div>
             </div>
+
             <div class="info-card">
-              <div class="info-icon"><i class="fa-solid fa-heart"></i></div>
+              <div class="info-icon">
+                <i class="fa-solid fa-heart"></i>
+              </div>
               <div class="info-label">الحالة</div>
               <div class="info-value">متقلبة</div>
             </div>
+
             <div class="info-card">
-              <div class="info-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="info-icon">
+                <i class="fa-solid fa-star"></i>
+              </div>
               <div class="info-label">البرج</div>
               <div class="info-value">القوس</div>
             </div>
+
             <div class="info-card">
-              <div class="info-icon"><i class="fa-solid fa-palette"></i></div>
+              <div class="info-icon">
+                <i class="fa-solid fa-palette"></i>
+              </div>
               <div class="info-label">الهواية</div>
               <div class="info-value">سماع الموسيقى</div>
             </div>
+
             <div class="info-card">
-              <div class="info-icon"><i class="fa-solid fa-mug-hot"></i></div>
+              <div class="info-icon">
+                <i class="fa-solid fa-mug-hot"></i>
+              </div>
               <div class="info-label">المفضل</div>
               <div class="info-value">نسكافية واندومى</div>
             </div>
+
           </div>
         </section>
 
@@ -326,15 +944,19 @@
             <small>A THOUGHT BY DULC</small>
           </div>
         </article>
+
       </div>
 
       <!-- العمود الثالث: المزاج والموسيقى والتواصل -->
+
       <aside class="side-column">
+
         <article class="panel mood-panel">
           <div class="section-heading">
             <h3>مزاجى حاليا</h3>
             <span>ابعد عنى احسنلك</span>
           </div>
+
           <div class="mood-value">
             <div class="mood-emoji">☁️</div>
             <div>
@@ -344,44 +966,482 @@
           </div>
         </article>
 
+        <!-- مشغل الموسيقى -->
+
         <article class="panel music-panel">
+
           <div class="section-heading">
             <h3>اغنيتى</h3>
-            <span><i class="fa-solid fa-headphones"></i> MY MUSIC</span>
+            <span>
+              <i class="fa-solid fa-headphones"></i>
+              MY MUSIC
+            </span>
           </div>
-          <div class="track-art">
-            <!-- استبدلي assets/cover.jpg بصورة غلاف الأغنية -->
-            <img src="assets/cover.jpg" alt="Music cover"
-                 onerror="this.style.display='none'; this.parentElement.style.background='radial-gradient(circle at 50% 30%, #8a6bb7, #272747 60%, #11111d)';">
+
+          <!-- صورة الأغنية الحالية -->
+
+          <div class="music-cover">
+            <img id="musicCover" src="https://placehold.co/600x400/302447/e6a6df?text=Song+1" alt="Music cover">
           </div>
+
+          <!-- اسم الأغنية والمغني -->
+
           <div class="track-meta">
-            <strong>فضل شاكر</strong>
-            <span>يا ملاك الروح</span>
+            <strong id="songTitle">يا ملاك الروح</strong>
+            <span id="songArtist">فضل شاكر</span>
           </div>
-          <!-- ضعي ملف mp3 داخل مجلد assets وسمّيه song.mp3 -->
-          <audio controls preload="none">
-            <source src="assets/song.mp3" type="audio/mpeg">
-            المتصفح لا يدعم تشغيل الصوت.
-          </audio>
+
+          <!-- أزرار التحكم -->
+
+          <div class="player-controls">
+
+            <button id="prevSong" type="button" title="الأغنية السابقة" aria-label="Previous song">
+              <i class="fa-solid fa-backward-step"></i>
+            </button>
+
+            <button id="playPause" class="play-button" type="button" title="تشغيل / إيقاف" aria-label="Play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+
+            <button id="nextSong" type="button" title="الأغنية التالية" aria-label="Next song">
+              <i class="fa-solid fa-forward-step"></i>
+            </button>
+
+          </div>
+
+          <!-- شريط تقدم الأغنية -->
+
+          <div class="progress-area">
+            <input
+              type="range"
+              id="musicProgress"
+              min="0"
+              max="100"
+              value="0"
+              step="0.1"
+              aria-label="Music progress"
+            >
+
+            <div class="time-row">
+              <span id="currentTime">0:00</span>
+              <span id="duration">0:00</span>
+            </div>
+          </div>
+
+          <!-- قائمة الأغاني -->
+
+          <div class="playlist">
+
+            <div class="playlist-title">
+              <span>قائمة التشغيل</span>
+              <span>03 SONGS</span>
+            </div>
+
+            <div id="playlistItems">
+
+              <!-- يتم إنشاء الأغاني الثلاثة تلقائياً بالجافاسكريبت -->
+
+            </div>
+
+          </div>
+
+          <!-- ملف الصوت -->
+
+          <audio id="musicAudio" preload="metadata"></audio>
+
         </article>
 
+        <!-- التواصل الاجتماعي -->
+
         <article class="panel social-panel">
+
           <div class="section-heading">
             <h3>Find Me</h3>
             <span>LET'S CONNECT</span>
           </div>
+
           <div class="social-links">
-            <!-- استبدلي علامة # برابط الحساب الحقيقي -->
-            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
-            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
-            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a>
+
+            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+
+            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+              <span>Facebook</span>
+            </a>
+
+            <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="X">
+              <i class="fa-brands fa-x-twitter"></i>
+              <span>Twitter</span>
+            </a>
+
           </div>
+
         </article>
+
       </aside>
+
     </section>
 
-    <footer>صُنع بحب ♡ دوللى
-</footer>
+    <footer>صُنع بحب ♡ دوللى</footer>
+
   </main>
+
+  <!-- JavaScript مشغل الموسيقى -->
+
+  <script>
+    /* =====================================
+       بيانات الأغاني الثلاثة
+       غيري البيانات والروابط من هنا فقط
+    ===================================== */
+
+    const tracks = [
+
+      {
+        title: "يا ملاك الروح",
+        artist: "فضل شاكر",
+
+        // رابط ملف الأغنية MP3
+        src: "https://example.com/song1.mp3",
+
+        // صورة الأغنية الأولى
+        cover: "https://placehold.co/600x400/302447/e6a6df?text=Song+1"
+      },
+
+      {
+        title: "اسم الأغنية الثانية",
+        artist: "اسم المغني الثاني",
+
+        // رابط ملف الأغنية MP3
+        src: "https://example.com/song2.mp3",
+
+        // صورة الأغنية الثانية
+        cover: "https://placehold.co/600x400/27334d/ffffff?text=Song+2"
+      },
+
+      {
+        title: "اسم الأغنية الثالثة",
+        artist: "اسم المغني الثالث",
+
+        // رابط ملف الأغنية MP3
+        src: "https://example.com/song3.mp3",
+
+        // صورة الأغنية الثالثة
+        cover: "https://placehold.co/600x400/493047/ffffff?text=Song+3"
+      }
+
+    ];
+
+    /* =====================================
+       عناصر المشغل
+    ===================================== */
+
+    const audio = document.getElementById("musicAudio");
+
+    const songTitle = document.getElementById("songTitle");
+    const songArtist = document.getElementById("songArtist");
+    const musicCover = document.getElementById("musicCover");
+
+    const playPause = document.getElementById("playPause");
+    const prevSong = document.getElementById("prevSong");
+    const nextSong = document.getElementById("nextSong");
+
+    const musicProgress = document.getElementById("musicProgress");
+    const currentTime = document.getElementById("currentTime");
+    const duration = document.getElementById("duration");
+
+    const playlistItems = document.getElementById("playlistItems");
+
+    let currentTrack = 0;
+
+    /* =====================================
+       إنشاء قائمة الأغاني
+    ===================================== */
+
+    function renderPlaylist() {
+
+      playlistItems.innerHTML = "";
+
+      tracks.forEach((track, index) => {
+
+        const item = document.createElement("button");
+
+        item.type = "button";
+        item.className = "playlist-item";
+        item.dataset.index = index;
+
+        item.innerHTML = `
+          <img
+            class="song-thumb"
+            src="${track.cover}"
+            alt=""
+          >
+
+          <span class="song-number">
+            ${String(index + 1).padStart(2, "0")}
+          </span>
+
+          <span class="playlist-info">
+            <strong></strong>
+            <small></small>
+          </span>
+
+          <i class="fa-solid fa-play song-indicator"></i>
+        `;
+
+        item.querySelector(".playlist-info strong").textContent = track.title;
+        item.querySelector(".playlist-info small").textContent = track.artist;
+
+        item.addEventListener("click", () => {
+          loadTrack(index, true);
+        });
+
+        playlistItems.appendChild(item);
+
+      });
+
+    }
+
+    /* =====================================
+       تنسيق الوقت
+    ===================================== */
+
+    function formatTime(seconds) {
+
+      if (!Number.isFinite(seconds)) {
+        return "0:00";
+      }
+
+      const minutes = Math.floor(seconds / 60);
+      const secondsLeft = Math.floor(seconds % 60);
+
+      return minutes + ":" + String(secondsLeft).padStart(2, "0");
+
+    }
+
+    /* =====================================
+       تحديث شكل زر التشغيل
+    ===================================== */
+
+    function updatePlayButton(playing) {
+
+      if (playing) {
+
+        playPause.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        playPause.setAttribute("aria-label", "Pause");
+
+      } else {
+
+        playPause.innerHTML = '<i class="fa-solid fa-play"></i>';
+        playPause.setAttribute("aria-label", "Play");
+
+      }
+
+    }
+
+    /* =====================================
+       تحديد الأغنية الحالية في القائمة
+    ===================================== */
+
+    function updatePlaylist() {
+
+      const items = playlistItems.querySelectorAll(".playlist-item");
+
+      items.forEach((item, index) => {
+
+        const isActive = index === currentTrack;
+
+        item.classList.toggle("active", isActive);
+
+        const indicator = item.querySelector(".song-indicator");
+
+        if (isActive && !audio.paused) {
+
+          indicator.className = "fa-solid fa-volume-high song-indicator";
+
+        } else {
+
+          indicator.className = "fa-solid fa-play song-indicator";
+
+        }
+
+      });
+
+    }
+
+    /* =====================================
+       تحميل أغنية
+    ===================================== */
+
+    function loadTrack(index, autoplay = false) {
+
+      currentTrack = (index + tracks.length) % tracks.length;
+
+      const track = tracks[currentTrack];
+
+      songTitle.textContent = track.title;
+      songArtist.textContent = track.artist;
+
+      musicCover.src = track.cover;
+
+      audio.src = track.src;
+      audio.load();
+
+      musicProgress.value = 0;
+
+      currentTime.textContent = "0:00";
+      duration.textContent = "0:00";
+
+      updatePlayButton(false);
+      updatePlaylist();
+
+      if (autoplay) {
+        playTrack();
+      }
+
+    }
+
+    /* =====================================
+       تشغيل الأغنية
+    ===================================== */
+
+    async function playTrack() {
+
+      try {
+
+        await audio.play();
+
+        updatePlayButton(true);
+        updatePlaylist();
+
+      } catch (error) {
+
+        updatePlayButton(false);
+        updatePlaylist();
+
+        console.log("تعذر تشغيل الأغنية. تأكدي من رابط ملف MP3:", error);
+
+      }
+
+    }
+
+    /* =====================================
+       زر تشغيل وإيقاف
+    ===================================== */
+
+    playPause.addEventListener("click", () => {
+
+      if (audio.paused) {
+
+        playTrack();
+
+      } else {
+
+        audio.pause();
+
+      }
+
+    });
+
+    audio.addEventListener("play", () => {
+
+      updatePlayButton(true);
+      updatePlaylist();
+
+    });
+
+    audio.addEventListener("pause", () => {
+
+      updatePlayButton(false);
+      updatePlaylist();
+
+    });
+
+    /* =====================================
+       الأغنية التالية
+    ===================================== */
+
+    nextSong.addEventListener("click", () => {
+
+      loadTrack(currentTrack + 1, true);
+
+    });
+
+    /* =====================================
+       الأغنية السابقة
+    ===================================== */
+
+    prevSong.addEventListener("click", () => {
+
+      loadTrack(currentTrack - 1, true);
+
+    });
+
+    /* =====================================
+       تحديث مدة الأغنية
+    ===================================== */
+
+    audio.addEventListener("loadedmetadata", () => {
+
+      duration.textContent = formatTime(audio.duration);
+
+    });
+
+    /* =====================================
+       تحديث شريط التقدم
+    ===================================== */
+
+    audio.addEventListener("timeupdate", () => {
+
+      if (!audio.duration || !Number.isFinite(audio.duration)) {
+        return;
+      }
+
+      const percentage = (audio.currentTime / audio.duration) * 100;
+
+      musicProgress.value = percentage;
+
+      currentTime.textContent = formatTime(audio.currentTime);
+
+    });
+
+    /* =====================================
+       تقديم وتأخير الأغنية
+    ===================================== */
+
+    musicProgress.addEventListener("input", () => {
+
+      if (audio.duration && Number.isFinite(audio.duration)) {
+
+        audio.currentTime =
+          (musicProgress.value / 100) * audio.duration;
+
+      }
+
+    });
+
+    /* =====================================
+       الانتقال للأغنية التالية عند الانتهاء
+    ===================================== */
+
+    audio.addEventListener("ended", () => {
+
+      loadTrack(currentTrack + 1, true);
+
+    });
+
+    /* =====================================
+       تشغيل قائمة الموسيقى عند فتح الصفحة
+       بدون تشغيل تلقائي
+    ===================================== */
+
+    renderPlaylist();
+
+    loadTrack(0);
+
+  </script>
+
 </body>
 </html>
